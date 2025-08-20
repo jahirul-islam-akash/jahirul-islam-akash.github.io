@@ -1,10 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- হোমপেজ -->
   <url>
-    <loc>https://jahirulislamakashofficial.github.io/jahirul_islam_akash/</loc>
-    <lastmod>2025-05-21</lastmod>
+    <loc>https://jahirul-islam-akash.github.io/</loc>
+    <lastmod>2025-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- অন্য পেজ থাকলে এখানে আরও <url> ট্যাগ যোগ করো -->
+
+  <!-- About -->
+  <url>
+    <loc>https://jahirul-islam-akash.github.io/about.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://jahirul-islam-akash.github.io/contact.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Islamic Song -->
+  <url>
+    <loc>https://jahirul-islam-akash.github.io/song/islamic-song.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Writing -->
+  <url>
+    <loc>https://jahirul-islam-akash.github.io/writing.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Writing/Start-writing -->
+  <url>
+    <loc>https://jahirul-islam-akash.github.io/writing/Start-writing.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Writing/first-song -->
+  <url>
+    <loc>https://jahirul-islam-akash.github.io/writing/first-song.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gallery -->
+  <url>
+    <loc>https://jahirul-islam-akash.github.io/gallery.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
