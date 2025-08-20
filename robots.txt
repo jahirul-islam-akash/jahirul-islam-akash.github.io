@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jahirulislamakashofficial.github.io/jahirul_islam_akash/sitemap.xml

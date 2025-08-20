@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaHiRuL isLaM AKASH | জহিরুল ইসলাম আকাশ - গ্যালারি</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* হেডার স্টাইল */
+        header {
+            background: linear-gradient(135deg, #6e48aa 0%, #b35dd4 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo-name {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-name img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-name:hover img {
+            transform: rotate(15deg);
+        }
+        
+        .name-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+            color: #ffffff; /* JaHiRuL isLaM AKASH এর কালার */
+        }
+        
+        .name-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            color: #ffffff; /* জহিরুল ইসলাম আকাশ এর কালার */
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.6rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: #ffcc00;
+        }
+        
+        /* গ্যালারি স্টাইল */
+        .gallery-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #6e48aa;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background: linear-gradient(to right, #6e48aa, #9d50bb);
+            bottom: -10px;
+            left: 15%;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            color: #555;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(to right, #6e48aa, #9d50bb);
+            color: white;
+            border-color: #6e48aa;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(110, 72, 170, 0.7), rgba(157, 80, 187, 0.9));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+        
+        .gallery-item:hover .gallery-overlay h3,
+        .gallery-item:hover .gallery-overlay p {
+            transform: translateY(0);
+        }
+        
+        .view-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: white;
+            color: #6e48aa;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .view-btn:hover {
+            background: #ffcc00;
+            color: #333;
+        }
+        
+        /* ফুটার স্টাইল */
+        footer {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ffcc00;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* মডাল স্টাইল */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            overflow: auto;
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1400px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-main-image {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-thumbnails {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            overflow-x: auto;
+            max-width: 100%;
+            scrollbar-width: thin;
+            scrollbar-color: #6e48aa #f1f1f1;
+        }
+        
+        .modal-thumbnails::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .modal-thumbnails::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .modal-thumbnails::-webkit-scrollbar-thumb {
+            background: #6e48aa;
+            border-radius: 10px;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+            transform: scale(1.05);
+            border-color: #ffcc00;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .modal-close:hover {
+            color: #ffcc00;
+            background: rgba(110, 72, 170, 0.7);
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+        
+        .modal-nav button {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-nav button:hover {
+            background: rgba(110, 72, 170, 0.9);
+            transform: scale(1.1);
+        }
+        
+        .image-info {
+            color: white;
+            text-align: center;
+            margin-top: 15px;
+            max-width: 80%;
+        }
+        
+        .image-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .image-info p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .image-counter {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 10;
+        }
+        
+        .zoom-controls {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .zoom-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .zoom-btn:hover {
+            background: rgba(110, 72, 170, 0.9);
+        }
+        
+        /* রেস্পনসিভ ডিজাইন */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .logo-name {
+                flex-direction: column;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .modal-main-image {
+                max-height: 50vh;
+            }
+            
+            .thumbnail {
+                width: 60px;
+                height: 45px;
+            }
+            
+            .modal-nav button {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .modal-close {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 25px;
+            }
+            
+            .image-counter {
+                top: 15px;
+                left: 15px;
+                font-size: 0.8rem;
+            }
+            
+            .zoom-controls {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <!-- বাম পাশে লোগো এবং নাম -->
+                <a href="about.html" class="logo-name" style="text-decoration: none;">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5fAus4nNLAcbE8LI1YQNB5FOxXWmPtpyle837UOkeZXphOYwTr3h82kQKJvMOWFnyJKant4ck2rr2tokivTZoPCTFutj2la3bKs2BjdyGDSuUQNyXRYRNjmoVldf7sxp-zKcXxo1_lSOEVdErIGkktM3Wgc1g_Xsal4QoeYsmehPi89EsLsqd1DBkjfc/w632-h640/jahirul-islam-akash.png" alt="Logo">
+                    <div class="name-text">
+                        <h1>JaHiRuL isLaM AKASH</h1>
+                        <p>জহিরুল ইসলাম আকাশ</p>
+                    </div>
+                </a>
+                
+                <!-- ডান পাশে সোশ্যাল মিডিয়া আইকন -->
+                <div class="social-icons">
+                    <!-- আপনার নিজের প্রোফাইল লিংক দিয়ে প্রতিস্থাপন করবেন -->
+                    <a href="https://facebook.com/jahirulislamAKASHoriginal" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/jahirulislamaks" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/jahirulislamakashofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/jahirulislamakashofficial" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>আমার ইমেজ গ্যালারি</h2>
+                <p>আমার সেরা কিছু মুহূর্ত এবং কাজের সংগ্রহ। প্রতিটি ছবিতে আছে বিশেষ স্মৃতি এবং গল্প।</p>
+            </div>
+            
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">সবগুলো</button>
+                <button class="filter-btn" data-filter="nature">প্রকৃতি</button>
+                <button class="filter-btn" data-filter="travel">ভ্রমণ</button>
+
+                <button class="filter-btn" data-filter="event">ইভেন্ট</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- প্রকৃতি ক্যাটাগরির ছবি (9টি) -->
+                <div class="gallery-item" data-category="travel">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGm9jOLu-XVgBCLNQqWapT141fz1L5tk77oGjSxXauXV-wwouyNqfP8YWvJxNyIImwCAqhIN7eBhiDm5jjppKvQiGqZolkrUSWolbCFnRQvJvs0OXG3oTdxQlbiID2Q5XB77AgIdyJ7qS47G8hcvnOm2DyvO-s4gIZPTBX3oxGPBLdnH1qCMBPzI4tDDw/s16000/00%20(70).JPG" alt="Nature" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>কুয়াকাটা টুর</h3>
+                        <p>বাংলাদেশের একটি অন্যতম জায়গা, দ্বিতিয় বারে</p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjfsB1ibeJ9qv7JXuYrUCe9lyPDjH_fTLb7EIXv2DVjmCgfP70qEtEkfUu_DaW-M2PazejP13OSYYt8pgKZ_bypxZBHNZeXum83U5tx95bro3MeepICm30GC3MR0_DGAhy2W-wNtAg9vErH0Wd2ob2ZFRlyy88FB7nWrVjYfuXDze9WWloeCM0Fd-6Q_4/s16000/$R54VW61.JPG", "title":"প্রচণ্ড রোদের ভিতর", "desc":"কুয়াকাটা সমুদ্র সৈকতে যখন প্রচণ্ড রোদ থাকে"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGm9jOLu-XVgBCLNQqWapT141fz1L5tk77oGjSxXauXV-wwouyNqfP8YWvJxNyIImwCAqhIN7eBhiDm5jjppKvQiGqZolkrUSWolbCFnRQvJvs0OXG3oTdxQlbiID2Q5XB77AgIdyJ7qS47G8hcvnOm2DyvO-s4gIZPTBX3oxGPBLdnH1qCMBPzI4tDDw/s16000/00%20(70).JPG", "title":"বসে চিন্তা করা", "desc":"বালুর ওপর বসে একটু নিশ্বাস নেওয়া।"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxFlC0VX4uArkASJAc8ScRllm2tTSTRX6gfLI7bpVZGvkscEZ7GdkMaTBN21WLS78gObSrJEZBe75NGkUOJNwvkQI-V8ThGyGyOkB_H-APQKslKYJbBqEweaJEnXY7kPLZPz7vjabKiFkMx3uK-8E2GtB3mERQdt5Lq9YxTdcU7BWZd-Lr2G8hSSTgAZY/s16000/$R92PVJW.JPG", "title":"সবাই একসাথে", "desc":"একসাথে যখন বসাহয় খুভই ভালোলাগে"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQAo3MCrZIwJ0QqWotDo8iROaMtb8E392ht_3vJ5-TS6NCLxbAiZv4XD6fvqyJoUKsu-4FXKtEVVt4qc90NIDZ048R5xbUkUijsFzPtbQFtPEzkdJ1q6dPYzfe3B5Yffm_uxW9A_KYmGRmNnzGx_JWlDuiCpM6-cXuoyDjDz_kiM-jBGLVpfPn__G1XWM/s16000/$REF3NLA.JPG", "title":"সমুদ্রের তীর দাড়িয়ে থাকা", "desc":"প্রকৃতিকে ভালোবাসা"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhScJ2G2OR39SNoKsiD7mYaAenUE0Z8QzqjWCdq7iqLrW2euSGCFKZECdpKdgORThVUExkrwAJpiVWdAgownfMaO2hHLBKtPCCTalAMZonT5LMl_1dwJNHzejflZXrYx5Zq2f7zpZ8s7OfaQdzfd6hplKcESWDBpLqpu93qFIYVYEkDyf3mMjryJDh0krk/s16000/$RLWJFGW.JPG", "title":"সমুদ্রের তীরে", "desc":"ঠান্ডা বাতাশে প্রানটা ঝুরিয়ে গেলো। "},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEFVtvj-X7UQSWFEJH6BvBW1cwTQtG_zepTyCn5Yv6SHPoHIqvS3Y7Oq-vs4sStj2C8CPz2HJ6ZmVYkWaGDgWpmuJ5IxNZmLUlRMG3uJincHzqUYxefFPPvgyHVq657G8-E1FZkap55qF1pEAh5E1Helh7WF8Y2WBZKue0PvDFZ2mShROs_6f-0zjUWtI/s16000/00%20(15).JPG", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA1wswlWdAB3n1l1Chz0k1tGpknfvaluzjtEA1Fhuk_R43bHRwR4v7S6UT5zOGTzwKJTjk65TNq2hk-HiwqHh9lOhzfGW0wOX_gWbmZCobXX-aaj37yfx9lMZv-MB8CUXZIe5rQ5-B6UbFrMaf6ZNwUQH8E0mQRsn6J2BYtJyXSTA1hyphenhyphenpTdlHyo5pqy1Q/s16000/$RZWMI2Q.JPG", "title":"ফান", "desc":"বন্ধুদের সাথে মজায় মেতে ওঠা"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih59h_3m4QUXoILdNPGNKn5bV_u35QjJIlMveGsVih2aL1fSZKd5xPJSDMQ2ekLWV0Z5jlBSzpyboRSy9D_pZfehuWzOsjJ0aliItOHsRORIi1SNkP7xQbqaVlnvI0RA8tAZGdXk-HdEEpfL_b8oD8Y4kIq7I3o-nYzv3z6Rcxbpaa_hd3_B1OgagJFnc/s16000/00%20(19).JPG", "title":"সমুদ্রের ঢেউ", "desc":"সমুদ্রের ঢেউয়ের সাথে যখন প্রেম"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5_xfH2vVtTDvDwW2cRnlM6THHJkGEp-CAHyZaXGF3PH07Q5CNWxpFLqYvXJr3ioQV6UtyX0QukvS5DwnDs1dbekBJs42b1ea6mHADNU_kdyKgzBmSgbPiWALyNkBSBMUTGBeKrPTht8Uj47Q7qy0ctUmE642JHTlD7366-BNW6QkhT5RW9wL38mfD-p0/s16000/00%20(62).JPG", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFmPkRXs5f_UpDqS_HT9bo9DgD2pByZRKW7AEapWzxoZq9sclbCEe2r4muvMu1X6X0_1kgfZzWzDzBea9k0sEbdc6apRocs9Rn9wWcpnHPr2qsZSfS2_SzNw39fS5zDomIFQkJ2AELfBbt0ZAy86kkzmsfcQwTd9oc6mgq-1tIzyoKVDU0MgGpsC9KvcY/s16000/00%20(65).JPG", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx4q7939uHUJn7oRhlGRXifXyNLYvjCOKl5qqxMGeG7C4ui3LCJt75pmXwx1MG7g2ZSOuDMvn0xNOR1LcHEdvVrxH1nbF9sWyYvM71Yn0f2zQBTLuafK7HXpuXkHueo06D0eBxpMbymDa389SRW-cErqCjBhm74kqCQzCwaVY0esGcXsdS0K2ChR0VXj4/s16000/IMG_20250406_061015_943.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioC3YsS3kRv_noZscehSsyKGHfa5UebwOu_ag0fjfhfRrySYOO9h0zhRqbG5Mg8tD2BcJoUIy8x0N43XAJ_cCEdU9mzO-RAjwfFm_KqwMM0ARCOM7GBrCq5vZjUoRVGa6XcFdGfIg5mU3DlH3_Ip0hY6bq25C6F4d5RKHcDQnQjJ0pdlkv5ejmTnYuptc/w480-h640/1000035805.jpg", "title":"জাউবন", "desc":"সূর্যাস্ত ওই যায়গায় জাউবন"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikZItgM9J3yGTvJMPEDN_be5TswzL4v-jnWuNUigepG7ddUjWaksZng7iyR6E3GszLRhyOWl5SazYB2UDyZn0Hh12XRqFNz3FeXfC0SNViHlTv0FUFndT95NoIVsS0rA3kAAypnGwZyrRQxY3Vng7Mxl7s0kwoyNML9_7yViB-rg01z5Ng6rYH0goUjCE/s16000/IMG_20250406_172816.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0JJy6lXU2vTH7ujOb6pxyY_SaJ5Amj15YTabHUrarDaS91I1Evp7WT8M9ZD5bXMypNrTdzhGcQMO_DSNjrda1YU-PPLo_8ZM0ifY4KhSkGZlUeiCETBD-10_4SQ8ejimEj1TE_BGZaFK_FWyFg73nz2BhceLFUHodelEazr_H6J3bJcLsEf8e7EnLy58/s16000/IMG_20250406_061603_244.jpg", "title":"সূর্য উদায়", "desc":"কুয়াকাটা সমুদ্র সৈকতে সূর্য উদায়"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGe2PhJJR1ViZVrSRZftDY2R5r8oRlJP1AVSjc2aZagSCc5wlfEUzlDa529Ya5sBkQDrbWWRys_kvk4-X7r6jkyaa-pkgTnANZIhoJEdK1Tf1M0qMHl4eFrE2wUhm0LCx83ZWy0-qF_xmMCGboWsbsXprATA1FbGAsnWTDSQOE7GP1bDB7PiI65kDAEOk/s16000/IMG_20250406_173204.jpg", "title":"সূর্যাস্ত", "desc":"কুয়াকাটা সমুদ্রসৈকতে সন্ধ্যার সূর্যাস্ত"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_C9hNCA-ZBPzGM0LEF1LkoJLQQ2nS9kvG_z3pjifT332DqPxvat5oE_D0M0IaEljP6DzXsVY288ES7kPobzPq-pgoqD3NhcNb6HEzh6VvEZyKouj3anLZcC0HDghw5vTMTQIKO4W1RV6k81rvt5w2JeV5G5zc1eTAnB_1cJlf_gPDNLrEfGLW8XXP_F0/s16000/IMG_20250406_175816.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="nature">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3d3AE6yIZlTQMNj07CvKh6Nxfw4i-9DJzbqemPrbG58iWsHK4csT9S7FnkfBuZRI9QDTl8eu6-pFAs89cTBoDJUKZTWeqlSpQ4Cmrxwg5oDxw92G_FKvJnTJkN117Pkf5hqVNVYCnDfXG0pHg8D0xHNtLy9dAl2f6Fm2nFz0OWzYck3a_dCveEnXUucs/s320/1000007348.jpg" alt="Nature" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>আমার ফটোগ্রাফি</h3>
+                        <p>দৃশ্য</p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3d3AE6yIZlTQMNj07CvKh6Nxfw4i-9DJzbqemPrbG58iWsHK4csT9S7FnkfBuZRI9QDTl8eu6-pFAs89cTBoDJUKZTWeqlSpQ4Cmrxwg5oDxw92G_FKvJnTJkN117Pkf5hqVNVYCnDfXG0pHg8D0xHNtLy9dAl2f6Fm2nFz0OWzYck3a_dCveEnXUucs/w454-h640/1000007348.jpg", "title":"ফটো এডিট", "desc":"সবুজে ঘেরা পাতা"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3MpsuyeP_7bz9PCjIypXgGx2hLn45_FgyHhN90R2-TcI7xNZmS50kQ47Uqo6MWZGifYzAjUR-G9cfK8alOKixkk4WOfW9-kM965cihHA116XgT_-Y75f3xdiQb52zJEWZHt1OPbIGzvqUilXgEXXhbF4cKL4KD-NyooUpXS7-6OIukfmag1r6ja_W0p0/w480-h640/1000005771.jpg", "title":"জবা ফুল", "desc":"জবার উপরে প্রজাপতি"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEik32W93KTrwqzHESDHaaUHpmC7kSQb07zn53Br0cn5o8DRdiTc_MX_5MqlVFS8al1I_xwjMl-1NQqgun-1NSlfZVDXIp-OhTI0cBIl8XKIY6LY8erG6IdZVZVkjAU_XERstKzDcGFhRbCaG5HS8uYoUfAjqisnzIp18QHRpJpv1TCJbwWgAchmwvWtLN0/w480-h640/1000010034.jpg", "title":"সরিষার ফুল", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmnH17lmCvp1bmexB8N3hAVG17TI39sk2uT403a1H9zIjGxsI_SFgRdiFU-P8rbArYQN5lj81ktzOgwWoUaZmU4JdokqoS6cthYlBT6vkOzUW6onLZrcmbk0XWKdm84BHMzpivKq1kIMIF6ALRwxBtOQpgdFYiR4Qe7-sXt5B6J5iFsNtw6u23o50567c/w480-h640/1000012538.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilJXv7qID0c2XR0mO9PlhV8pvLYW-OFI4SPvYZU7tpEhrDZd6o_-g5qLkqDdWDAAn2ceo7dvSBtYC_IuxA9lt8gcAU9jo1JPIms_TH28Kis3OJQkHcn1TMqp-IJ4UTBKlz4Z3dvDuUSwYdkPAdaIF_KYDS_dPTc6xWWTIzX5CmDzicXxDP1ykGMLcbd3c/w480-h640/1000014461.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaqkyncd7Z9nW8zTl78RpOLc0cZ5na7rl8eorElbdMMUHUsTG_uWYp7oerwo9XhbLloanETjrp9_urkcLHJu2xW5xmHym70D1Rfk4ZuXJg6Xf24cPqh0d-DRCZ9-Yq_wgnqUihfqcXXdXD_EYUYTVluPcG1FzDXOWNAfR2G34CA4cBAffGvAalpRuQ_nY/w480-h640/1000014462.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdL47AGV71JQglPdQxMZe8uDqNMb3ATh8Rdkc7NQgO4swAF0arH5DiD7dJxRiYh1tn4_jw9bS8_ij_luQff2G7h8jICJqkDH5gQChA2xq_tSGnz3notyMBQFmbRcmUCUYGMaUag3ROOLIxsOGePAv2CQBBiofkXJgXfmqQ2oVME2xXUlj2tR_QEL6jGpM/w480-h640/1000014465.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEielPLCanGSHukn-ogUkPOwYuuQoS656Nrp31OcUoDytrtU8ZVES66l063sw6KMGV8YFbDiC9-PayXmvzN0UbGGtSsipa7F8dDzDqjj2BnTQM4Kj3r2yftBCxG_y3EAGdoO8I70T4RM6tP1W2vfG0f_7UBLQ77QV-QycvuSVRSx3mEvr_GIa0J-EjUhXYU/w480-h640/1000014463.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIRw9MSJQGPh7MFzmPtzfo8wCrobCPKov2WoH2duMmJ5wGUT32bM0-oW23mJhz-Jyr-4tJvQ2XQBerBT9TVc3cesqAePtWxzxLQNBbuEVJJbOKoaKuCNZnS-rw88RGwChyOhUaL9dKrW0581b6olMOOiep7tL4RoJ10dlzGr8d5G3c59vy4756V08SlpQ/w480-h640/1000018655.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW7fPmA4j0h8YnnIFxYYcq-KS-XBFOcqK6SbcEX-M4zT3VknTvzJYFG1xjPHgAbBnmN6jcl0l51Kf2GJ04ev6tKAU7zvix8GvAT_CAtMCEDbEY7zRDDYuCaloDn7b6XAD6H8fUqE48VS_8frLRtc3jOn5DD5dj1l44ED7e7MsphWDxrAXBVqar9PBr2Ls/w360-h640/1000024934.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh-H2zaY4-AaQMpk0-Q29Vjd3tN7Vo61O0x-dFzHE-GCEj67an7Wmo4Z3xrdVhUJKbl_4V-0mUqradup6RC-8L8I8vIiPtXXQRUfAbHak0ZD70AgY57h3TR9X6CTGjSfUMR8KMIGfhSUGzUgAG904C-TaPzpFFM5KXAD1E0GOfhfnGgTzdTEdFVfc9ccY/w480-h640/1000025026.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbVWY9iPl1pOSDw5MO_-aqQF1tnOq-e0Xqcma25arR8jUbQCLeP_Q_PGsylTOpwSOZxU4WwT-dsBdGCHoucAdmrit4DKeRnTTldyhoznk9A3f6Ekt9LKLTG7GbEcd2vwzHw9ZNJ-K04iL9eJo-vqmWOte62f-LVOhFKnTwri7HMmJIoABX-2ikgJxVia0/w480-h640/1000032841.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz3EWc5M2kpBokMcph1mC1lrIN0rqP-nM7JnCtuE06anrTCZSAbmrQTlHnhUNXeZd6mjPwSCSNkm72hew22CoOovLrQYmq6bakJoMwoca1fyJ3-gkG9h5seRjkFkPGz4Prk_n_3ugnWoSy1VK5NLur71kBctrqD2X5jdjNdu-h0hTywNcaiCREpFvoR-s/w296-h640/1000036019.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0tjfsStOfftJ4Tu6sZUgo1lA3wVp49QZvaG0GPEaYZRMfuYUFZPk8OmYlrWERLBJOpvDzygYLeAzyVZjMWWoj4niq9xl1fsejTaHEMG8WoKlptr5T7JrYBuUE_FSDbOn5iL8LyYzNBBYlvTOpRRUlg6hqiTIVUbphwM1dhMOCS4VP89V1uV_Zj-ZaI5A/w640-h480/1000035816.jpg" alt="Nature" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>ম্যাসের সময়</h3>
+                        <p></p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0tjfsStOfftJ4Tu6sZUgo1lA3wVp49QZvaG0GPEaYZRMfuYUFZPk8OmYlrWERLBJOpvDzygYLeAzyVZjMWWoj4niq9xl1fsejTaHEMG8WoKlptr5T7JrYBuUE_FSDbOn5iL8LyYzNBBYlvTOpRRUlg6hqiTIVUbphwM1dhMOCS4VP89V1uV_Zj-ZaI5A/w640-h480/1000035816.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVA8GKqLbKPETD2yXDeDBg344Hr0M92x2Xu7ROZBD5semxkEyXOa3VbOxnsUc5Uvhp3dH6_l0dV4xhGU2Q0q4IAApFvev24bZMF_Mg8lDIrqc7tLtIRjyUi8pXVN7dyHlyuh92RMnwDCfmO7aY8FqcU_CK9-Se6Eu9hVcWAe5HEPmBBJEFxbsP4gFapNw/s16000/1000035835.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjn9CzFCMNtb1A13Jt3hkVDee0V-mogJyvpVimfjyQeEAOmYL3m2xX2JIP7V3onRwh1d_Jcavp7DwT1B11VDtVPNZreWC69DfDxWv2-qEUt5sKj35GM6qzG33abETjiWLCyhzfM_vVZDu3vLw-evcVZErrJqSGz3kvJEQhdNv-u9BvGt4pbcHZd8B05b_A/w640-h480/1000035842.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0tjfsStOfftJ4Tu6sZUgo1lA3wVp49QZvaG0GPEaYZRMfuYUFZPk8OmYlrWERLBJOpvDzygYLeAzyVZjMWWoj4niq9xl1fsejTaHEMG8WoKlptr5T7JrYBuUE_FSDbOn5iL8LyYzNBBYlvTOpRRUlg6hqiTIVUbphwM1dhMOCS4VP89V1uV_Zj-ZaI5A/w640-h480/1000035816.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgN3UUFn5ha_uT4lQBSzXlhHwUyowT38yvGsrl5oVm8WgaDSgpg3_81O7KFgiq8XTer-iTEuElQydrlk1HVARlZRgJCzxCjjKkD8lOLiFIUG96SwLawpvGv8Si5Sgma6N5RauJgGQA9kJhm4KnBp5biOU5NWkIbd15ORn06yjizvbUuvmYq5Oof_s-eSDQ/w640-h480/1000035810.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3rYD-ev8LIBnRgGjJ7DwK9OlfU6AnjL2nhRnDx7u_QQXwetpQqBN2upGJoryVrjdCbF9GMhkIP7dWB8Do6kY0jYIRYZvNQFTuCkRTkUOJvPC2dA9NQg5sZOn2J5PAlh3CFVOG0WoT2hSjXdNSPdBxVtEBMiLZHlcbuXYl58qgP4YWJnO-JHnaA-ofHNQ/s16000/1000018174.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPyOceyLw8wlAzVkZ1LgxeO_WUOtbsl4CCKbtD3tU0kiH6FRGt6vEgyVsHRvYMbc27PC-6eqHLBJ69erpCg-L_HwQ2otSpTBoIPphkgqjR1-DU-Fx8ol34nILc3f7CeBO18pdAwuvBZ5KrO_2fcNk76l8IoOmqaDXKWRZnROlNx0PX6xmPw_xoNIvXfNs/w640-h480/1000018176.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyUzwz36zeGw_6VyeSs-AFCqttYVdQ47yQbWcOn3XeOUt7mmoBxz6p4EpRDPfN5oucd_McCpCIETayOv0ZYQVx1raViySnlVP38d19NfkhauzMOQ9QHZ_QEcVikuS3Lmz2miKY5UQMW00brduoWKdhpQmUv_Is5qNyEaZYgq98GFQF2nL8RaFauluth00/w480-h640/1000007390.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5WszV0_MlZnoEjPaAIh9w24jV8rRyHS4uxw41UyAzmXdiDVH3gyZvCzd9FcyFfXZVlrvXM0kiG-4MHrGboBvQM2nNZfj3ehZ7wW273oi28JdazTqUq5AezGTZj9rARvdkWzgvTY-yajlHNOEqVfSbLwttph3lzDs-aT8uxaq50HWojQjDQFiWMxAHKMQ/w640-h480/1000003519.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4UjgYqDFmggpgfSjppIsEW0DxRn0e6RjaoQSElOwINqSQvwg46wWIE9O74q-ihmMKE6SKyD1Fz81hJhD9Csbs4JXoZAfGAS1G8FcWfRrIGv7WResJLodACB0hJl8Ha601GkVyQGkvkIAVXWQsRLrpC13hhUAHo3qzWWXx1DEQbHYQPF4_z8ehA4P-p24/w480-h640/1000035838.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeE1snq2zH54CHi354BmvyG4SL6LbV476fo__jTTnuXhD84rRw9sCU2Yfh2k6VfSUfRYeWyswWDK6H509rpdt00uUej2sje64LwISrnUy3LKdqzZasjko0kcj9RQwRnA18ZjwXOpILb8UjO3hek-7p7NnO9HCv4Fh8ZG7G9zoRsjlqEHK8F3j_2t70Wlo/w480-h640/1000003518.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-8ocQSUZzBs2Jjwll1Rjnn040QgGsL3U2eEsw8eceJfxM5IHplulcDYIHpn14TunIGJqWjUPImSWHmp7f63UOBZ5dsjx6PY8ukHwTB43Esm2M-_MAIzx-UnztjsfGETDNLmds0nN4u5bDH9-iTDClD-_we6-sDPbEv1cQrScGTxQUILQ9gxgtx0IsLdE/w640-h480/1000003305.heic", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1wOMJ2dTN4-NMxY25O9RfEY_BDgpmlLM1qdu0C8bVGohvX8Bje8GOg0PnmcyzNmMkBV3jwQNwa89pUVqQO8wyW_mVEExcHUI6F4o5_rPXLsvvYPSX8wWYpavs5ko8fa_ipTHDif1-n1tBB3_Xym-aQRK7EX2xeGyjWMLr0GtaCJoHiSLIfOGqRRcEFUM/w640-h480/1000003306.heic", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP25OzR8nReNoIhaDJxkdsjBZSGucR2zLaRJ6r8VJgdvoLty_8A7MKvYMivlwVV2oeFbrNKf-GI_vMizPxYi3lFzeGrxs-S79MS67vSD3HufRX1uHBGZ29CI5wuzjyFqsiayRINfAipOUwyt2kzeV-D0cah3XVofpfK2XU08o-7Tte8eiDDYn23jEOc6M/s16000/1000002886.heic", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCTrfhU_HBgrkkplwKQyl4cHo90MsAe1-LDjE1lnixRk1ltsRbmyjfJ66B_VikldCubVGjRXc8fk73fVsX71ZWB0jhSRnmCYg9UKi_GRCwFa-vfAVqppoNRTtilEl9F9ujxpzpFYR6NnYriWQYrgyhNhVJebs5G_2q1BMUQ2OQQQNzHm_mLA_UC_QNSfU/w640-h360/1000002368.heic", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSJ3hEAXoNp44eFCOWAS5-g9otkqqwZFNsP37aXiRPUsB20o0VqPFy3M05KJhL_vKy-t57CbOTvzdDJM20LFXioDuYerjgfAdKnPlaJeRURQZjFfhUcFsRlFy5UixfmoT4bjTtRS_5GWlB-SWQp9u9_SDyoUWQgqa2qYh7tn44pv6xkRF1yacoxZ5u06k/w478-h640/1000007353.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-ExwuUtTqO_p2KbtqISVSgRPpIbz9B_XkIq1U1NAffQSLbA2i4p8FBAn2419RPi6TtFKFUCS1vdUKgIx0oJtOt50W2pl2V9TnpBDEalOi8JZBnyBVXyVnch5qvl-mG00td7MBg_Y-sud3JgIqVqa0VyEZzW5xbEcsTTKV3yHU7ueStlLP4Mc8CgTxmQQ/w640-h360/1000035839.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDHNxgFLcySoAVjl6wzBaZaAKQlSg4MHo88xCp2XOjn_QRzxPRuYAEDe-rz_-EG56PIAKLno9OwgqNjJPakqn-2RBh8NwTn3GuX0nxVSo6v_0GflMtZBXQHKnRO-ooaFH1yaJco7wnFAjtY_5O6hDV8NJMlFHh8_cjlPr-7Qk4En8LLVAZUKoBG03e2eo/w640-h480/1000035840.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMpJDUgGA6RJwWtZaAfApTGjSO3NW4d3BzvSp4EzbjilfVe8rUMpif9clF9sKG7V4GzFpnAMy5UQvijfO5YXCoovf96SBZk5LlDlLFHiPlnFvX3GPJfLn-qEN2nfvNRsS_jEavhhSifn712bfGaFqmDjAFKVOwElEgRI5t7wlWu98L8kKFK7HPnfpkm6Q/w480-h640/1000035841.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <!-- পোর্ট্রেট ক্যাটাগরির ছবি (9টি) -->
+                <div class="gallery-item" data-category="">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5g0Kf7ZlOoMrdQDNK4A1HCSKNyp9tQH1MxtUmgC1kYeZC20Qehx8yE_FDMJzU5pimJ2FQ4w4j6jPv2iglEkgcgVDllyoGN_enGEdarpTwXuSAQvAXCl275aQ1FXjor0YFenPq9Io5OTbcFMzElC9LxJgpPtJCa1ihKiZ1uUfSzfTZGH2YlYOLo7CFqag/w640-h480/1000035966.jpg" alt="Portrait" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>মাদ্রাসার কিছু স্মৃতি</h3>
+                        <p>মাদ্রাসার দিন গুলো অনেক মনে পড়ে।</p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5g0Kf7ZlOoMrdQDNK4A1HCSKNyp9tQH1MxtUmgC1kYeZC20Qehx8yE_FDMJzU5pimJ2FQ4w4j6jPv2iglEkgcgVDllyoGN_enGEdarpTwXuSAQvAXCl275aQ1FXjor0YFenPq9Io5OTbcFMzElC9LxJgpPtJCa1ihKiZ1uUfSzfTZGH2YlYOLo7CFqag/w640-h480/1000035966.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEghD0gNFBoAY89PULVF29TeL4S_UFV2xYMzXS_bRFMomErPGyRVlMMUaRURkcxG1VgYJhruQxz8DeX644CNsWtkVWhIlTYVIojkmYXWi0kuEK92ntZo-Com9by45c3wMjTquDjOEHHZyc8cgv85Klo-BrzuBA1tffjoMcaVvmwUBp1cOhsm2Oxnmfi9hbo/w640-h480/1000035967.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjseJN-WiwS7AGFPV2RMaSiB7Gv-NhJjJM8A6tBdF0ZrsPoEtW0y4mCcbwd57Krccc7jhiweY6-jsLxFza9fQ2F7wpqUyzUh2WV7fcnk8drc8YYYw0XJB8B9kHAbnCY5jTzGYPNRxILYizRgdCBoOBqqjJjQyRKHAHOBrCieSai8aeeVKC7cZJC9M3UTVI/w640-h380/1000035965.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHhmzCVK54zrOOEohLJRJwtF4Lv-VA34rmPa3Pb5DDg48eQ4EGn2K5JwqXiNNMKES1Ht_S2Y0ERk0MQeGULrYagTLv11LNCACMaAVDV9_ACfLavBI3BP700J2EFckNJSWWj8sM4g8ZFZ5W2Zgv9Bt2iKl8DVt5l4aGpUJWHChBi-leBv9Jk-1nGiNeeek/w514-h640/1000035832.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifjv3JG74jLFMc0ijxhxKh4qThv3K2s5cMLCz-xSnTHP2bM3mgJlA6jhN-2m0pkU9PmrXiyiToKywfjWPikNPEXEKh-uwWFFO-g3hcMBY5BSiChQQ7iq9Hf44MFUZXs6iEgUtWaxc-kwZgEYUX6ztGDIqYQ8DG9DaLcrqkafftZgWP1tgo16vgt8Z6-cY/w640-h360/1000035968.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhejfma55hVIubrzDRXsnRhv-Jcy-2_X2_9NhiC20cOKfzTtvTn4SwFNtlRmTcm3cSN_DDnRazpx1_IAHprTsMefRh5n29LAvQsPkfg7COgYBx3j7Ubn2X5_Sw6oPeWgRKU8uWxDlwrI_1Guf5BbJMZ6rQdgYUb31d4p7oUUf0xCTYM60Yb7LxBGVexhqQ/w640-h360/1000035969.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgB-AVV9UiXplAKWpWTsy436YA3Fk6dQdz5QQF56aRCyHkaFr3RbV_JEAENFJWqXv48Aa-UC2OTtskFdE3nLIDxkUThCmTBNK6hVm6yX0yvgchFGr-HA1Oztuv62BOALNOu_LfIHWUqdaOTMZstmd30Xl-JJybhrRh64PvC9tmenV-IZ81vFr_E5V9DRNE/w640-h480/1000035970.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiQlXz1Zvi_J2Hjrf8j7JZ6uS0VXx72DzjY7cFC-GOZmw2GIlW00xTTTT59-dXSF76t3wVIDC2zTfF0Ytsbkzkf09BGsffT9aoENdxY8veSFgWwbsuUUbs0xNAdyrZlwMtskBKDeO4VIkx5aUUS100jX_WKxXbM4RqlGf5Hl31MjXNYYz29y8I1hndrwA/w640-h480/1000035971.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhM-ld86_B4DN6qyhRCdc3kz9cEv6uMypHVRm3vdQionpjsRld7YG0ZdNnXNnk-z0GIsgLQV5Hr0WoikYBpjDIFMBgmuIPdPZcriuunpKki19j5v2YYPV_l-zyShgUSdNh2eCJdof73H4Nk4_f38CsXB4ZvGpzjPqv4RNtgWzujmCZMReWKjyWuUgS4gD8/w640-h480/1000035972.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcXgRVPmh_emtgbNAlVaRqpYKzW8xGPLDezaexfGK8qSKZsI4kcfDkc6rXHHxhlJHgadTntatZ3TLLmAcKDhP741tBlwlOopKuwQ0SRn4eWc3fBgq8_NsPy95v6mLYySyfwyXh4YlEfjQnmDAeik-tEjE44l9nGLv5sDS5BfbVqBiYvTV7WUL1m6rT4bQ/w480-h640/1000035973.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiD0Yl4zhM9p6_GcHHk5KLPzd03Osqq9dgHJMzOzCQ-519ntkFajHLhkrYrYxRZcglc0smhXLLc6WAMuzIG-I2AUE9LoO7o_2O8veUZQ3QkOf4nPefXwwYJ3WsD45sxukEyCZEz4QwCeijxMY5s6iIi72bUHBuadyJrmcy_h0JTuoini5YMZKlgrE71MGc/w360-h640/1000035976.jpg", "title":"", "desc":"বিদায় অনুষ্ঠানে মজাকোরে সুন্দর জলমলে প্যাকেটে মুড়ি"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0-2aU_5NRr32hchPGnccWwx2Q4bIcGM46B4dQAtH_ls1OVEKCfBc_6EJbXf9g1gLhzt08i1r4YOBWl7caMe3E0JQLHaCXt7I4bvBpX0S0p_r-pTrKHhmeKAK84-Z39Ij9Sl_-lorjjlNw7n4h4qIzKfdwzmSixP2cisqOUoEuo78TUhiBUccT8dO3J3I/w640-h360/1000035975.jpg", "title":"", "desc":"এই ঔষধের প্যাকেটের উপরে সুন্দর পেপার দিয়ে আটকানো ভিতরে মুড়ি "},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLH4vW6hdfzkn24vULkhREejeJTolzLJQ2QOESnjK5W5TRe2VVCQ3bMLZLccbNIadb1aAdE9jyFZtUAm5UtBe0QdtvddBDC5mKAOsnyfEWWV4S8HZzN3iTr691ialWk95NgvbvcOBSOB39KVzjNJSAvoRnjIbw-L0jz40ztuHNKn9YzzsA3UP3BtEvBuk/w360-h640/1000035977.jpg", "title":"", "desc":"বিদায়ের চিঠি গিফট এর সাথে"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUj8BYZOYcOC5aqBRZp5Gmx1ZxSpdzCeYa2a2nKdaL0BC5E2fVyRkX58rqE0Ptn0hbwnlwaUrhpcF90Za19tBb_yXT9zYMguPSixyDaTHVh4a0CENUgqP8YQjSgDlPLUja1dksq3luM9KjrNa8R124knDQmCus28Qf0Ux9P6cldoXQu6rBTCleickAN2c/w640-h360/1000035979.jpg", "title":"", "desc":"গিফট"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8r-8Z4erdXdCc4-OJAJCSqX464Lzfq5owb3TYpqbprlKbNE48fZgWyGmX91FiJ-HxLP6vC3SiNqgOQHpRkVhmgWsMF_eUKkCzbVy4uXdlw7tjQJ4ziY_u2UX1sAKZJfQdnK-FD5a1NsO2c5PMG53oirrv5flrPZoIwNuQEtUCEE4hBXbpca_f5lSMj28/w360-h640/1000035980.jpg", "title":"", "desc":"গিফট"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCDQUR9fKdCr_tEKrIsAoqlMA8nZ2-Oj6ZTAqAFZ0GAjR5QacYnC4UJJ01tE4QU35WhNY-F0g68nVKQkfQv3y5keFS4B76YQxU8558AkJQdRfQVMoKMtYHkULY8aOwC5hV6boYcxMuhP88wBbROpa2tWZcgpwQEdhoS429n0NeUp2tsIZ1UckUb75AroE/w360-h640/1000035981.jpg", "title":"", "desc":"গিফট"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwKw9mVI1_WXCeo9VGFNzF2-cUY2aOQq0wUxIrEMywEPGfHxCLDh_TmqcOoqxE8LzrnCYbhCfEmlIZd9XeX4K7iDKE0ExbIsc1sZlukoiilbc_ZgnUUR_PoQYm7QPW8eI_cb8oqDRdH22AyDxw7zUTImwbvKzgAwVKKKF-iS7gql636gzAZhWz4KlKH5E/w640-h360/1000035982.jpg", "title":"", "desc":"গিফট"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9sWKoUrKeBDOLrwzQGt6vmLYS47Z0sF6V9QEtgiextJd4F7kHIljK6sILT5Jqk1KTsthnmygXYnkOKQ4nPY16ePWL94hTnJTcIL7XaBgxDmMAg0nsJOEcLnrxcS4ZNfgIai8c2J0IzmODby4EHguv5RnDQAqB6l6-KKa8q0ZhbomfiI6jirvFg_VQ9O8/w360-h640/1000035984.jpg", "title":"", "desc":"গিফট"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhB7YJYgaWrTAaC3x2ltCGhFU21GnxeN81IaZSZ_A7m4IIBV2dp3LV0zN7YCa__awa8fobMjIwQhnG-YdPM4RCg6AV6HhoeBYg0o9KlfLhB1voGYYS-xD0BqyIFkgLQfbWSOIHTnD_zJmpBe5J3p-x0eU-xQgOc3pGSrOHB49B1NIro8hl22SE9FA5cbfo/w360-h640/1000035983.jpg", "title":"", "desc":"গিফট"}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="travel">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd_8iM29AVkmwm-uNyGvUcFbr0f16qBI18VfmDWg-tY8kqv-MlHUxYuiPI-VBnLtDQklkclWFPmZJpub8FwEhp3eoLGgnj-1MqctApM8Qq6t2LviuXqrayqaohyphenhyphenWwo_gwW6FEJn84reJdFq1k8eGtDFWVhjAH5PA1mu6M5VIsEiV-czod7kQh1PKHhIjk/w640-h426/1000035828.png" alt="Portrait" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>কুয়াকাটা টুর</h3>
+                        <p>প্রথম বারে</p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd_8iM29AVkmwm-uNyGvUcFbr0f16qBI18VfmDWg-tY8kqv-MlHUxYuiPI-VBnLtDQklkclWFPmZJpub8FwEhp3eoLGgnj-1MqctApM8Qq6t2LviuXqrayqaohyphenhyphenWwo_gwW6FEJn84reJdFq1k8eGtDFWVhjAH5PA1mu6M5VIsEiV-czod7kQh1PKHhIjk/w640-h426/1000035828.png", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv-okhiauehrOozfO22p2rRVnMqk4wpbrLr_HxPxLPdibeDnSqj7UF9HoDsx1787BWC1RhDhtx0O4md7xHPb70lNu2n3lhpEKQPd0_iv3aTIIdQlYC8gLLfmIJ9W6g-9kjiW1Ofz4kdsAVc0hkXeIQgofA9zVGUTQKW-6Cg4exiqnPIWJzUbuaff7R6_Q/w640-h426/1000035826.png", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBWal9gtvGXquaiEGY-gnD05D2mxg0DU9HT3eLxTfPvCE_Ph621PkmAcS1IRRuY1nqM1M-i7b8nwX4ejA54cW8qRTEgGuR7rwoLWezU88RgcInvxzkrR6RTeRXScPgzyDZ5i8X73YvkJCcvkyNXc7BP8Swa84fDmWfmR3MwXVaF0b-47g3bKmAmp_j5dg/w640-h426/1000035825.png", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBQnnEqkxKBuSvQJrW9e7xPfh8NppABYJ6dGQfhnO9d-D-HYhPNs4JIQ-viVNcT0g9iUaGq8W4eeFOA3YBAdczaJ-cZrTOCIqCZiKkdvwEZdZa_a2TWSHmHYDI1MLufwpa39rFh0vLDQ0NjLX-d82U4ITtpK62BT1WBXuI2g8hFaQMiqc3-gIVu5lslIo/w426-h640/1000035827.png", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBc8-6FNjNn4VJ5bIuGbejAleHeSvjolOwnMB3H7rIXXjsKnlhYxNrjJmKBXtZv-eJUTulpl9NKE-senp-fBBADCBXmwHxekcJE0Suu_ZfU6SxTUrEijYSkcHz_D-j37FqSpjuUKRQrK5lTxuT0q0eqUyaYviWhwA0FJRdjk0rATsOZXOjiEqHPiUvcoQ/s320/1000035829.png", "title":"", "desc":""}
+                    ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgirTTO6k0J3rb2gf2D5aEIhpRrVbWvsVRiV-jUbwnc4ri6g_lQOV_MR33Jy61z9kVB8ivAuQbUCBGLVBDrmpk6GHpmW7co_6KPnJaS7O_ZGCi7r9PLHZ7u2dBQ0bR8ZYSz7mt4AnKARLUjvQ6Q4uQy6RcGpjo7B8UcKDXC8wytV0_3CknEDpjvNx_Mo2E/s320/1000036026.jpg" alt="Portrait" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>ঢাকা</h3>
+                        <p>প্রথম ঢাকা যাওয়ার সময় বন্দুরা লঞ্চে উঠিয়ে দিয়ে আসে</p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgirTTO6k0J3rb2gf2D5aEIhpRrVbWvsVRiV-jUbwnc4ri6g_lQOV_MR33Jy61z9kVB8ivAuQbUCBGLVBDrmpk6GHpmW7co_6KPnJaS7O_ZGCi7r9PLHZ7u2dBQ0bR8ZYSz7mt4AnKARLUjvQ6Q4uQy6RcGpjo7B8UcKDXC8wytV0_3CknEDpjvNx_Mo2E/s320/1000036026.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi33pUioOhIgsAfwCxuhe6oh9bcQBJfoAQQ2zZBZOrHyEfy6Fs9Hpwn6EV-gpWeKJw3uwF7i_sTR1unh5nvd3zpoZFxqezJS6HOZrwU_b9UnGMbjEpaHisqH6oodt7-zlBjz8u_GgoQe5uXgXyvQt_hx0sbmIXOZ-jAz2Zj849KSOA4DvEH4H5mVes5I4c/s320/1000036036.jpg", "title":"", "desc":"যাওয়ার সময় একটি চসমা উপহার দিয়েছে"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6IfgKj8FDYwspMc5Lv9ANQC5b8EBXBpXZLjfoDXsNwdEEB379C4Ln2Il8iCQKI8riVygYtuz1BLAEamK8-hBv6S59vz6ughbKLMewR4wcz8GKNXoln2CqbxwZIMygEohn-zKgeCNO-hAgSU_k9L8Yes7jjcMs4XC_gxI1QDxVsYsUNXIbdemeodZ83wY/s320/1000036025.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQZmDo36s1eHOISS19WY0wOaTg0AXc0Z5tCixd1xh1_LamX3OezSwsmd4ox7HWQa44RygffOva_MK4DruFN3LbMYHwR3R_2vp4LD4N1hkSP-BIMoIV4NHPT4r22mrZ0n_TuAp0d_yWRfesDXKtQTjWEJDeifFtnjL1fjE1dp7NjwShWfVjTKcWvy1s6xk/s320/1000036027.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg393kc3UpnCgIFzCdyf8I0Gcc5rlfrhQ2CacAV1C2uWUvF2BWKmLPniWibPtvJ9YKJR1P9-bQKU2SxUWeKH9R9pi_wp5racwO5Vf2wvcji362IlasF_JIV3grlCjZMjb4KONkNhYaJcJm6BTpJtJFEmSU2sO26wsnvIWelLbfQXmQ99roVp9vkX1SL-pQ/s320/1000036034.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtTGopxjlMFoeOo31AgovopXPEfFPleWgYI_Bk49-WbFZ5VWoDjVyvFu15zVNcm3K0wYIyO3uhv44CJmbs9c1yOm94PXOX91qQU6dAqKPgzcOz3YCVJ-f6_DmDEAlWFXC3YjBRfY4cZxC1d0csDJ2acLZSOfYhCpu3Wn_b3aL75dl3AO2ysGEdLJ29f-0/s320/1000036031.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOCOCZ6IkSP3g7KblpI9O1JSrJwD76ZRWwMVPldllqdj9Ha7s5wNiMi5Jd8WR7Hj_2lVqqMvzfXnjf37mnMEMIIzrbjzF1DaZGNDfsGr-wlNVJolCeCsuNYX2COTxt3kmctZzQ0fgm_aqB5szVhyphenhyphen22C-WVfPn5GvnXrMguWeClB2FtHhg6EoHyO5g_XEc/s320/1000036032.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqwedHTyBMMi6LNRcKTV2RTwTtBlRdfLN8IWkMq02quzyi4kRY3yHmZ7-JEsnlYA2mE6zTqR9NKkAEcMfBipnystqVJ8cYqTK7T0O4IR-ijSIa7L_qzMdK7AfkisIqvjVgEWl05j9pOft5oq29ISqfEBnrtQoTgPso5BKpyjHQSaoROgAFwM24hG5ofGg/s320/1000036033.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYuYC6-4SJxtASNttw7NmRksUX4BZhLN5UyNBeBfONEz5rClAh1zc3VFdkltrKgSHav6ILVuItrSdmzN4LNRQnPQkVSEArZM1isCSRmN51jJUyKaUBiN4-RA2D7XzJCTKb8isl0tPq5Yuwr2oDTL6USaNaSPhzZZZa7zenXFNpNRvphuonSkE6ZuhLqZo/s320/1000036030.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihxXgC_5pP555FaealKkC0dyZj0SEWdjItJfW3aoBuhViAL0GTEtuEC11qr2n75gstt6vUJP4ceX6yLD453JrYEhqaIhO57KECyB6xq4ZHQBC3tkE_PnaS-4UvXp8a2Twd0-oAmwvtu9X6_ZasRoSSI62HTrWyv5FlMpvbR1_BiekktvS8bZCxL5y8tN8/s320/1000036028.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <!-- ভ্রমণ ক্যাটাগরির ছবি (9টি) -->
+                <div class="gallery-item" data-category="travel">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_TsLd2d-uRHHax8z_PA_qDJKWHbj8g3sPszwt0qAboH47Bvh3zhtmpYzSWlHdkkHMdjcJ-2v4sUSRj3v-2kPMwXfhGxFYiOkFQqA502q2iiI-uL4AiD3XFGlcd0P2OriokRaPLw0jweE0rKnNNLD0RYzbDX3bfFiK821h-x9eiY4_Vn-6LySRuoVn09g/w640-h480/1000036012.jpg" alt="Travel" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>নদীর পাড়ে</h3>
+                        <p>বিভিন্ন স্থানের ভ্রমণ ছবি</p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_TsLd2d-uRHHax8z_PA_qDJKWHbj8g3sPszwt0qAboH47Bvh3zhtmpYzSWlHdkkHMdjcJ-2v4sUSRj3v-2kPMwXfhGxFYiOkFQqA502q2iiI-uL4AiD3XFGlcd0P2OriokRaPLw0jweE0rKnNNLD0RYzbDX3bfFiK821h-x9eiY4_Vn-6LySRuoVn09g/w640-h480/1000036012.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0RdetzbV7HXZRbTCu5gtyYpK8ZY_cCrkqJ1y3wkCushRzTJ8wdvrbrrrREi57rvHaQyU1jr9j8SorDvwMJCF6i8zm8JoVfZDdcHR3YKA2KGdzJHHwppZ1XAfZ1vkTJAmmDutrorkj9V3F2hRM-R5OMNB2UTmeDYO2J__Ad4kycR5s4g-wodsh_9SY59c/w480-h640/1000036013.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDlL5H7t639xLupASbSL1kEA2reH3CwKYkSy8upy0q-JsYRB7xLW8ohB-sDkt5rn5I1mI5gIhPpK4gV0joRX8VxBiDUB49Q6eIMRK5wrSwF7vLv791GwMccWXtEfIW43D7qWa98vZU-VXSkX3UxfTCjC2-22MdBjBmtJPUBfxbc4IEvDIjJwNL76QQM30/w480-h640/1000036014.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWzBLZIeSgv8XTyxcn-5EF-uVkIDGFs26RHqp36eteG-7LOUTv0vizQCShP5W1f5PwQTFlGMUiI6CL0eVsYBHU4wnMrak6PupZ3XPFeiVm93pewJHRj7KcN8duc47Ks_xREKvvwvokLTxjbtwdF1KmokmGcBbjwSP-6TD9-geuRV1iLE08kchlAWGngWw/w360-h640/1000036015.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpM_BFqtijhxESPY9WB_Z5BOsOwkiOdnOLrzsVpfEQF02lTAvUS_buh04vDsCTCZ-hMF_ggP7qPqZaeEZKScIgf5pXgTdk9yXjm1mO90RkiJwniDIUKMwrmYbkDougF8PzF0umSeoZzGuUXepwiI-qgrKbkZaAYI0nsYCJW5SvKdtuAKJjGE5GU-9gNZM/w640-h360/1000036016.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy-dld8b61FGRgWRDcSJysUILNrontBmvBjRwzA3QwmobWIJDL0jJs8ZwkY-hd9fR9S6ApTYTeEkcHlJPlY4Lhuhld_KWkazg86ZJayznzbJjcaqgaFk2VqaIRql8LxS0wUyxTjcRDa12iiZl-RJmywPH_fzEF61bQxm-RaqBPpznns8hp859GrfdRk8U/w360-h640/1000036017.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXt4eBT4l626tKUW7rv2pfKhXAGE0RXxfolALvRyRKAG2zRRh9yOZ6SBKmuaLrjpqYdKquXyZe3EihIsWwR4mlP0gP9ov8LzmiRNsEIJr85Cpbq0P42lsPVcYZzF9ddobdRqqLoJ7TUHVMH24uuEojDONIuOGzWxELgmmQVF6CCEMc0Biq7iaJpXLRyL4/w360-h640/1000036018.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiS8LgYCFNx4nCPbiTNIVI4BKhHydEb5KFGtlSmXasE25A2_xWor8CTegT92KrO_FeKyIR1ruB4260dk5mvQTvUXPSc-13JtNog1fNPFPOzhcjrXz3cFG6mBWurWskvHj7qnIst7IVTdyFyaGE3k9Dr2sGlXCJSj6QPYVI8hw3rtgkICy7h2T3BGIXXrSw/w480-h640/1000036021.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYzQySC_Z4-0aUf27NO9AbzpIduhmS9TBl6hDTgKxx97ElcA1Yk5YCBuP33L2B3R5J6OjfwGg83GdbM78ypXBXkwvKqT4ppWlqHh8TTV6IefZyIzWkzwYm9Vek_Xvr-9zVaKO4lo0SsH2PAd_QSE-S4Z3qIPCV5vFvLdlw3T8icTDj-vArtnfvaJc14Yw/w640-h296/1000036023.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWFWaZKn4wofEF0cOWoosgEDTWXsMJlPypU-i3XEBEQRFGtsI8BYRmxUUADIAeTprMn7Roc4nHegpZZxNDJDXLK4qdc0BukNr5Df9In9GyxigwyhVMRldubTZqfzmSh2GR9y8aypGc9C8CIMkUDsKnWtyKDQKmbLbqjkUD9av6X-FOnmjebZPTuDxTejQ/w360-h640/1000036888.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTSGxXcg8cLFwpmyTuPHWZykiJDLBKrCx1YSOiByC1NWRyOiMVMorL5TuaWl8tlPz4M3H_OUOvTXVQBLBXiQffpIUAw1FGw6DRGGX1jqWvYJidulMfLS_Xrn7DK81t3DUe3AbvfP-nmshsiPLSijkLI7rwc5HG3qLrkdJ9KfFrOrSP3VbzzHerlHnaYAs/w640-h360/1000036008.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7lJ3PR3JujiFLZn8xB85LQX54HGwIvKAVTC6tyid4sbaRQ6HWQEEWLLShVzZELltf9nHLTdXRRbIJ0vb95Iaxb4WYxPbGZHkyRRzpvi9ByLR3gBGURATPm2-X4HV_ZvuuxuOF347H2c1ZVBuHu4M3P3G1ohE8oGFjwAUyw768iABqs1itPUkUkZ1d9h8/w640-h360/1000036009.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2znZuooVZp93_Dby4aMh-QnV701QOOtgpYqHO4O3az87zUm69ds3KA9DKN90RTCwR5W195hZexgzzbloy69oDUWFWg4WJzlu_F0GNnTwgikw12v_DKxr14zhoMcj1eyBqNv5hSFeQWcse5dAjauP5pGywAjGg3DHps-UWH8lNDLgUP8W0yBA9WhBewt8/w640-h360/1000036010.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjshKcxL_01ArX_G5Vfxn3hT_1AOvC027SFH3gWgl3IFFJxoKkIqL9E_AozMV8iuyBQ-f0nN4e5uGqHMvE2_-geN8wBuXCj0ACB2rX7CJ0df1bhmnHPaXT6psanVn3I8qPBc-_alsk3E0BBiqJojnE4eBra-TUptxsG9abhrQHVYdjJJ_gpDUcSUr6lDHg/w640-h480/1000019086.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_PKZWBxoSjVmNpDIFXDrUJ65uBp0X3QStxKmnkv2mzZKeD1RXZJEIx1vMafYhs3iJ3fVwflnOhISDgiThb8Djfpk41avHldbp8mgMxaUqXtBKTAGnC7X6fmfIKLSqKC8697HxvSacf5IAxn0aPjuzHXD_5xk2D4vrFu47-OoX4zuyF6D78uxauzsfkeM/w640-h480/1000012652.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOgFxbGIMa_hGROV_OcKofOCp-gEslBFsX4U_hsUd7jnijicWlAl6WkumMvy2fytIOOSQDnmEde64Wqga6rP8dDd3jyxFnC2wiwY7JNWKSHGh6OnP-p5J9r5Hd20VXHXJLouPbjmTKmQUYk2QuZ135flU9lvBjvsfQNLrlSSf2Mljoq9cf9wi81IylQVw/w480-h640/1000012647.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZDESUGkI9G_1pHZJtTLalc3T750lHLIqJqfjU2aBEOoX9HYDwi0_ZIob1ysdpqocUr3z_OZVNRAf87D3_w7RQjgnVej6BO7zwbYZWFJ_WdhNMUg3JAHXsBptcQXES0FOmWfH4nQCk6L25pqbcGxMiC5aJAA8piQ5iR7qldXOK4oLv8iTMfH39llTch-0/w640-h480/1000012620.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZkUVsxDH-0cfNGGqqErss8edKHhFBIDxqruhh7zKK6hM7coKLwc5VThCbSYFUqlo79GsG0Xikzn0fi_FifO_zGOjOiJPIPtnbFb-ZHSWKaPnjvyv_YXuj3jf1Qe-I9alc5rAWXgk9UTM-ujs6osxxPwccFMSaovI2IaaiQBXMY7vHtIAMf_Hvk8rlzpM/w640-h480/1000012623.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEAXjLv2hrWIYjEuofUVOnlNbMLRWqO1iDdNblAnF2PSUwhGd0UJjKAJRGOeuXsx4nysQbYE6MVueyzNmxbYV2vX_dVkmDYdJ9rEUEwusKunLDiZke-E9bvQdnjsz_ulVfdaKCkcbrdYOkWJjHo8LF7tbmDo4K3PS7AaMiTJ8Bgxqr2fceWjEC1biTS_w/w480-h640/1000012627.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjixJikLTtrhkijvGmY24XSyymjV6ODPlhawy__QsSMy4-Ou_IOUq6X8a8Hr5PzASnHTTBXNo4keVnvHYvte9k0Cdp7BKiB1uEjp0s8T7D0KWqlESuA3S_tlTe-qidl7PDro3l-j-Um6gHJkwGQODwYIZauuUj9sT0WExrbppM2Unf-QUTb44RZO1FyECc/w640-h480/1000012616.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizvFZ-WuQ12tm38vnd2ao-ylPYMf0Hno7CDDfbeW9RT57OG_dlUOpc7wtbbGauoq7IZgVfa8lPSLGF-NOwEg_vgGrq4NVXkFIeKiaGwlTMRCS50ibAz_OypkCvYvPaRtcmvO_EDAW6g4aH7ELTwkNPj2achuvnbQIMQt5A6EUr6l-APMy4JBEkjl7ZSOM/w480-h640/1000012613.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHNY37Y4zqypffKp6vAeWU6x9K0j5NF-31advtDZqWwincGYVf3Q8hXnYDLmabdk0foFmFSh_wHVtId7PawEnrhQ9Hwo8wmd3yEl8SLbr3Do9XaokkUJyN3V_CYShH8xEh3ehA9EZwF81DU7yYMcsPAm94047VtUbONrbFOiJ3XLyKYEHiQNRyScPu60w/w640-h480/1000012608.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9TCcoCJwUIqTibFrO4PmmWYDu7apUF14tRxMc_AJnbvda5OnS05NGlvwhnaxsjNmIU3lU9xvgMZMlB3iL15UW8705TDNoPFvq_vRJ-m1nQYDo5M0SfvTkLtk-bKJ3ZsrgASTCHO_lkZW0SlArD3JEvR1UXb4b4Z0samii738b38LE57GijC3Q4_hhD08/w480-h640/1000035847.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnp52kErRh3FdFWQ6R4R0Twv3OwyIr0smTyq9oy1ZjgC6_wtpGWod5PO1FzifsdmIMbZ8Y-ZQFrO26XWY30O75-lixVGPU_nrtsutBXpICSRM5thHzHabSit-LnnROxYbhdASUBkOqpa7p40V_6c-xRhjYKKmZvcQ8s41NO5JfYhbyv994ddPRxlrqEwk/w640-h480/1000035846.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="travel">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0-0j-u776xSE_QCPZC_SO2n9KKcAH1CA7HNi4Yf2t6XRHoDbv1yi0N4ifBvQlTMoD8t_V07IBQ-PMl1F5oyU0q3T2yrN4haUjabZvkI7GapH4Jcb1ceLQWWg-X_PtxBCEuxv_LeorB4ycGA31uhUXaJcKr2R3E3ADL-m7I2BNP8_tGdO5wDMCMVcmjwI/w640-h480/1000036870.jpg" alt="Travel" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>কাশফুল</h3>
+                        <p></p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0-0j-u776xSE_QCPZC_SO2n9KKcAH1CA7HNi4Yf2t6XRHoDbv1yi0N4ifBvQlTMoD8t_V07IBQ-PMl1F5oyU0q3T2yrN4haUjabZvkI7GapH4Jcb1ceLQWWg-X_PtxBCEuxv_LeorB4ycGA31uhUXaJcKr2R3E3ADL-m7I2BNP8_tGdO5wDMCMVcmjwI/w640-h480/1000036870.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAIRgjOCoCwwYt_iUjPnQvKSSWj0S1xw_45nrGwKNgoHtZAEi2ky0tZrlYECRdqE0j2ei370haXP5pylXoUmqJx2zc8bpOaZXzxXP3EnCGnRIjZpSv8FFzZFvHEUIgLLtSSsjjCyOKrbR2eZ7-GARqRTvHom_XZ4Y2HyjJTqqNES51pz77BI9J1RMx5Ws/w500-h640/1000035819.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilIWp4q4UowAHehIk1DcympIbGU2uKCFsO1bIW207dkxYpDNxzH-p_hd-GLHeEVwqLayoPisZ1Xh5RVA45Bc2luK9p-iMMKO_crH_wpsrXmdXS1d5ZUNsd_BYSCXxSiuccrYk5XKHMdD4jdxQVCv2R-L4lwsC0xvxggcr8QvgFT7B5LsJj7DF-5FEmwlc/w482-h640/1000035820.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNbOhiZzVAGQ0Bd3hmIJrmFVvm_lCnOnrRVenKZf9s4H-8iIoqLdQoIUfj__DhAvNXbH3DLphJskzRsw376SdfxmDet3ngP7cgAhxtbeErV9P1XrLPDH5vqlKugDZfWtGRj-Dwy4jxOJ6juID2NGAnoTmVq5RU__tQfxmLWCqLP3QugOcZcb-F0m7z_Gc/w360-h640/1000036877.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdwPPHI1zpxRdII0vG7pjMfeOtyCWWV7u-971SUjTSLAPLn2WNn7TaGoI4E43UZoyIQ528Mu1CxB9PcD2GiEXes7cZtDlqQmo7X6loikFMX9V4gWgMAyCDb_g2BTnZjp4vPAWcgvDoDd2SyzlLLzPEL77Nv0O20HFt7sgMX6fN1QGXFW-1IEz0bMShaQ4/w480-h640/1000036876.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOvvIjEr9V3gc2caJfu9Jdgguj601_zHUzkzjFlovlF3cf0CdysazvREC-lJLVzvGjbg-QPtDxqAxJKAKBmqQBDZGVHIlp5-H3hMLQ8b_DETDH61f2tRzYTrQZ9pk73UFKw7uUsoSX3G9g5s4mxWBrXDz6FG45e_UIdtbOqnhjo45MCh7sx47KezzqGeo/w480-h640/1000036875.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvCI7XF8NbC1SjD4oFLlVMiLPBJZUqz5klUv_d9Y9H642c8OBsc8reCk6Z5PQgCcjqXtxCGZclde71XMAKSD3U5jnqr7TOZKWKlSNTFrAE3-mJ2e13Aft8K82X874uJLziulLh2_sEhGU-Qh8D-8RhtyR5ig36GdfH7epZWgtzMnrTHeaQJ7BcA6GT8g0/w360-h640/1000036874.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRzowbVT10xCI4HImFteILpfcI0w0WxKKw-HrjScP2AwOjjDK6T_5iw1K5zNAfdXWYUAcW8dshdhOB7lhe9cfPiB6reqQvPNC-9TPRSbmaITBFBDhwSFq_HjHf1v8i0CrZIZUVp1eBKIIYD6I4xUTmHvZ1Aoi-UK1RVOuzkANk9DjlmG1vZZqRhuTisyg/w480-h640/1000036873.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHUcfzYtgI1dYRPohq7P2m225lZPqh9VtXl5s0TpImEdjQPqkC1oYyxMu1nfyNM2pYr38Y_ValuoBqbYjMg3acxFBN-Nrg3cEGMcg0U9fka553N4rrzN2iJ241RWR9FcD127Dh-m3-J8pvvmqzesQEsCxMTte5QS4Agt5nn-vvTZbyen0-EXN4FJ0smJk/w640-h360/1000036872.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0or3n4sqL5Vwvx1uzNAprX_mXnWKiLEwSYDSPQV1_SdFaI8_fxk6OR8q0gP99bWxz0qTCoA4HyDIHZUgVcQSD72TN3ObXmVN4uHNTEXUyyoWDLV3MRYJD9rUQgwBAobHJliyc6PLIwrmATiFRPO4t9Gr41SRJp__RIi39x9gvJxeEcej8W8A5687yP9U/w640-h480/1000036871.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjof8mSFUU6F_LypIyRqQVZtacWCDurEgKPlAIqnvXHdHJhYot3ipAi7tj2f8pcLJFB03X6lICEZLezFCQrm9cFAvWqTft-fg2rkCpaZjkigpLJsa1EgPHLpa4oFSEnnbu5JOyDBVtLtyotrNkrdAa1ZwxVdqCnMX_57sCcSEKbkW-HzEX_VP_Moz_Id4o/s320/1000036868.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4cMBvk_reUUFiKxjfkPu8YACdi8_rAdRygTWwm0KVn3RzTSZafwpHJs2R6r41_lWSmtB0ZKGkMDLR598D4uBORwyOWoUQQbfgl2EbZ9j_AW1mBYokfjIXro8q8aPB0pwurQOnt7x-rMHEmBZjkZqnJ7ePwp9kebCA3b8YvRFKcexpZ-2idTZ0ga_Rsxg/w640-h478/1000036922.jpg" alt="Travel" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>ইনস্টিটিউট</h3>
+                        <p>বরগুনা সরকারি পলিটেকনিক ইনস্টিটিউট</p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4cMBvk_reUUFiKxjfkPu8YACdi8_rAdRygTWwm0KVn3RzTSZafwpHJs2R6r41_lWSmtB0ZKGkMDLR598D4uBORwyOWoUQQbfgl2EbZ9j_AW1mBYokfjIXro8q8aPB0pwurQOnt7x-rMHEmBZjkZqnJ7ePwp9kebCA3b8YvRFKcexpZ-2idTZ0ga_Rsxg/w640-h478/1000036922.jpg", "title":"", "desc":"রাতে ইনস্টিটিউট এর পেছন সাইট"},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitkeR1B1GuXEWK0D0UFVS4Y03TUDHkDGMT5CX73KVkyJgYDUS85gGbM9hyphenhyphen6gLKiNN-kHHQ5KmrYwffMxBq-OnJDaNa2WO2tw1DBTY4Xo5xcKJbLXpppeuvqB2rwkhLriHv9HgaCCxsvRu-Sj04zhsTlz98i3qVG0gwTtMlO2xuQjnJgg1Dna3M5MlHFvg/w362-h640/1000007337.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqebRjfnFWabRIjCRcFVG4Hnf1QQaDU4nfJCHWArSk9aSFNZGqjYvrbczhJQ8hLrM7gDtFSoYQYT5Pv6pZL-t8cUGTGYd83sjax1O59mW3L-w6mIoFSWIJs4e6zQBeA7x5sshdL1Y6dqzpflKcMtC_gC0btC0OIQeLy4fg5aKi7-DsqF8sPOzJPh78vl0/w626-h640/1000035830.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7VqaxY4yBkQISLLESnUfAly7WILtUUmvcZeMObJDjP1GssrkFMj4R7TFHmrh-vRYUZ_A92hqs65iaoksI3GZR_6slJFuOlmfhvwuSC0AbR7rWQmYNIlbTPyQpOM0wwtJ2D4Ycx5HIZ7d1VI2Fp1jgnfUqPKHJ0kUqF_hyphenhyphenb81CIKpGs8BHn6gfOjGd-xs/w640-h474/1000036935.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTbANVdmBwHd_fmgp1RFmw3kRjAGanyPzFvOZ_QjB88aN5ZdKhZcO5_rpCV3WZnRPHJQPQEANHrG8DYJcImbOOUNskUp91Sif6_Kpvzchx8U48WOOR6mrQzIrpRfiKHH2f7YK-1GK2pTAASvzDPBKrdlFfioGG0UejjsUn81GXKjLziiQzCe7IQL5vT1M/w288-h640/1000036926.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8KBsXbX30oduoRUvyf7slYf5oPW6-ZYqSKos30pUhhh1lWvsAIf_ywdUjrYYhV8DaHDhxU41kwNTjG8Yqdlc_wpU50d5ZyGI6LCNs1b_1rY0vynl7FBvSjBPVvVtacwPxVAulTYkRpFxpAPww_pPENWBNxy7qBWbQfhJ_YSdf8-R3KRlubJ9DDq128Kg/w640-h536/1000036765.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUYeWiQRxoyEU3P5Or4ua7HtBJBUNVZSk6TpxojHfivdsjBCTYIyE_dsVpMg64OL-blHg9DCoepEmaYtyDr2T6vjTxLpldLFDKDOECd8QiOgr5Wb1tqCjJFUR64tbsi9UefE2r68BPpoIXoPqpYF_hutBdTfxkhqnA-v4zha7Smx1S1KXnOmZ9hs03I3A/w640-h536/1000036764.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgq-moIs2i88f2C9jVU_OeCPL-JF-QMTB1SR1tXw8dnQIQnMoYfOMTysWHMe3fluAoPxAel1edSIjwmBL0bP6OznRsTEZuU9a-zKuXEnzVg1qkXDNBKrj4GIhM9JeF0meiuZNh4qVav3rGh6rkT8N_cPpjUXByfkoen6ll36UxKPBt_QMRrBz5qL5EJXxQ/w482-h640/1000035831.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsbBbOjfhDslLsF8ILBxOOP-zt6txKtSuDNuKnR_EuJ8AZjJyZGnGUXkcgwZIbr-cAM7oRSavPPLXMjpdKrPVh2DxOAnAa96ojd705GzLZsvabejXaOuJtyN45myGE-qOMROOA-p79ZelebjeRpl9p7VaBQ_4CGzY9aFw0f3kRz0YbsizB70ltT-Vv_B0/w480-h640/1000036915.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgu19yZbBOsUbcvYwI5HpqbsJrss7jASMjDh84rOeQlw0RK2NqavqBCQvJO-U0mGV9JYqDimGgghg8AhyTti5jn8t_oLCYiojqVFpWEeVT064YAKHlk-nWsLuvMFIL1mcNAAKWiDPVBc2mUvb_766H5vfWGvYanwG4F-ebj4vW3ULiace9FsJd9PAdMmU8/w640-h480/1000036921.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgE2E2k8rH5c3wRoycDS3412GnEl4aHKU9HeLjxe2rk5VtlZGXTQlRgjBYACTGXLXr1RA3W46tiqHqZtiA1BgSJTYy3gagbdpflK_omdc9a7I6PpUmAUmTkpZjAmX7t56dJvZp-y5i7tCVtylM27uEz5o8BwPgA9aURsDM6IRZKUr7VfBFPqGaoe9AShz4/w640-h480/1000036914.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMyfMCdlCelB9-1C2jrqyGA9wFKTqvhe6_t6YFmM6ju9WI5GpsEdXnWaw9subE7M1toUbPDntXiHjZYt4Gxe2ICUphKv2oE2MN7-5sGZawLPEw6Pl74Z2kf0kES06A0ZFEZxJnv4jIf81c4XU84V57wupwQyBcX5YOyMw5kssv1BD8GRzp7kXbSJcWOrU/w482-h640/1000036936.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <!-- ইভেন্ট ক্যাটাগরির ছবি (9টি) -->
+                <div class="gallery-item" data-category="">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVDtDxZIaXfjRqvK59YjOsgVjDTyqYJKA7T14oeAzNAUK6QixJ-v5xgM7hReEbKMJZ91lkCH7XrIKCdwS0ld1y2kRlXZK69kBHe5E5DeqrH60dz54TzuzGLAfH0v6iOzpHVLUZQqkY1-QJ9kLidDn3fWSSB2GbH6EJdsVZ55PsutAlkVtbmiok2hsHKnY/w640-h360/1000036917.jpg" alt="Event" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>ইনস্টিটিউট সাংস্কৃতিক অনুষ্ঠান</h3>
+                        <p></p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmhHk2COlF4dT9_flgV5-5O7iv2-p6oeRnYm3rnzyBSbPh7fUdRQyYqN5oFBG1NnMO-0qMQCSVvvJTi4-FJYh4YcsqA8YKEsteej-q_iFk0pRrf2JuRheih6nzQzRbBpsyqymIw9DpQiIr129K59gUbhRtaISsqCeoT365rNPy6eQxYcgftSTGZ_-ly1I/w640-h288/1000036920.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9INzmBorR9MJLcauIVfmpnY07lrrP0oev91meQCa6YLwTLxoBTLf9cvyfGpJYuBIsNVOogAGaJW_PQG8-zzKSCNaIIq6uz_4n13EPc0Jt1NtjSF7bHx1X1sdoPP9kXDYUjnAB8ZTDY6E08-Fx-7tjmaV9UZz8yRo-wGQygnbNjh5rebqjS03UVTLSZFg/w640-h360/1000036916.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVDtDxZIaXfjRqvK59YjOsgVjDTyqYJKA7T14oeAzNAUK6QixJ-v5xgM7hReEbKMJZ91lkCH7XrIKCdwS0ld1y2kRlXZK69kBHe5E5DeqrH60dz54TzuzGLAfH0v6iOzpHVLUZQqkY1-QJ9kLidDn3fWSSB2GbH6EJdsVZ55PsutAlkVtbmiok2hsHKnY/w640-h360/1000036917.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjo25_UUyX5uA3qt22JYuDgvlL4PTzIYi7llVoVgJyLm5omq6rKKWEicgJ0T5rhepB-Ukjh7P3qrATUgySa14rjPlTzjCZHfXPymKsMb5hVBRmyK19Qp928vuVZiPO2_sdKxzIqGyA1kNYgVdoBukRhWH3WN0wJkpeFDWcHp8HGydd3DS0RE62sx4tC1AQ/w640-h480/1000036918.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUhfbI7e2DTNpFNd_OZOrfjgHWSOBKz0tfxniq3oRligFENNJ2SiQtNkuwo_ycjG1itz3ti8Iprcz793RV1twTnYtJP3pcGQ74WoBZrZVGx5QB6Urb_k_H3bMV1QKR_ZQ8VHIqYS76JXPbMf63f6IDdNWixOGdXtaExYU_rxkqbISWRjB-P677az3h2c4/w640-h480/1000035811.jpg" alt="Event" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>ইনস্টিটিউটের শেষ মুহূর্ত</h3>
+                        <p></p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUhfbI7e2DTNpFNd_OZOrfjgHWSOBKz0tfxniq3oRligFENNJ2SiQtNkuwo_ycjG1itz3ti8Iprcz793RV1twTnYtJP3pcGQ74WoBZrZVGx5QB6Urb_k_H3bMV1QKR_ZQ8VHIqYS76JXPbMf63f6IDdNWixOGdXtaExYU_rxkqbISWRjB-P677az3h2c4/w640-h480/1000035811.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqWZ1WYmZX5Lg-15hOUCFllN_U1pE1ErIXQhJyvSvB5uGHkInOEG2r1DbK0h2FK0QAHNtfeFUQ5vfXk7PxEplVRyBl7tpRfDYICN_BMHJ-MTxT18j487W6kjQ3zCWn1e5Zk2zO8w0kXr_bm-ZkzmekT3P7ocpwA2SstUeeTBw8HQItWIBxfYr10QwQw-c/w640-h480/1000035807.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiI6zJSCTt_rkhElnMTtOPlSKiIzUcCjohsUvrL3l0qkhlWjQ1KsXz-BmpVspsEhJKUgVSqO5TcQMTFgWOEaJEILMDGVg6UGFhM_bds09VmdDXRpPzzcQItBBBbsBdpxHPdTFC68Tu5_6PFqm51ZCJ5doX_Vr_NYm4oiqwnyCzOfoA7OlnYX1U5aqHIt2M/w640-h360/1000035808.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVi2xrjWH0W3FZPlEnX-4X64BS_7WwlUV3sv8FGcDbmdPzipbHjyAUzelBL0ipHB-wtxs73dGhZ53Z6w3h8JTRVGEYEv5k8jO0c7HzHQxPT_8kTTuJI9ZgEXylpsXwJ9ASRRq4NYzsSpL1F1lhMQO27E5DCXqHIwntT6nWWGK4f5wcUFDGCwLSP2s194o/w640-h480/1000035809.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8PreJYPfDss897FYCkyX0AkWtnYrCat2H4-U-_ufIHSlXoJahgNGB0jAaBDKCQF3E-rBvmke7Uurmau0w1D6XiagHphPNNIsnKT4_pcr3y50nhqz7piqoEjaqLDRvzeyinTXNNSoqV5FayyYpCD85I2ZrNtV2j2QlL8dPDZ9W2UuBp7Vq3Cq3LDE4nCc/s320/1000035815.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrYiEY4taRGgcEBNCoz1Od1a3wd42OdHBEDyNDtQdW_tOdxFmmhIQUFfXMVfVmEw9yJmU04ocmstKlNvTSSqbKUwEFY_-OSzUYs-vWpsvGmlPiMEc5obg2QIUVsPWueZTrcbAyxpqa38IgU9-S9N0wcOkRTQGgMfMS7nEGV1k-G-gafwVrrpA1RsqzbHk/w480-h640/1000036998.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihczyMH5E0usIr_PCeOR3hh9O8GpeXLhDUH1f0suxcXNUcUMa1Y8u0O-6rxyqSUeNGFOambSH-U5aigNtYGmHdwRWCxWdCCGR920DNO7wQSsmzSPGZ_wbpdii9l-_RtTxACvoO4qUd2XhnO90jcBE53rHYRkXPdl8Cj9uC1ZOciVcpgbPjB9thHXdli2Q/w480-h640/1000036999.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvmDjhdvb0PIi7M3XRQh85OGPH1NYcCOVhtVZ6u_B2cCQcigSM0JM2NOpsuSNraH1PnlnwbcorQJ9NcpBik3g__4vhlPkDXuX6skF4R64CElPlPFwWmYhYW_o5nsrtWtvZ6U0QZfIWtBUGWjNHDxGswYmjHn6BVJQBCSfge1edN3pPKTQPvlj-dzqLjk/w480-h640/1000037000.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7daAEmnzzGInX4qPv3DDHYnorjQDR9j8rxcD1C_vXpoEZZD6m4Hj4pk2O-DPXDQH3bPe5HczMxVCX6v5jgqz6YZAMacuSGjcaLBtBUpgh5JibGLRel6lUNz9vefqPGh7HZFl_Hs9d35Bp5vVTVTcD7kP-1rL6pgTHhiPdCSJSsUOVGllMRNiUqGETJP0/w640-h480/1000037001.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtkzXz9D9dpcQnSDcaI9VKPttuEyKxhOUptOf0bqA3XIh-OgF2htUdntxbAHodb2O1HsRC-zJ512LbPnUyQLYt7_vtAoTDFvOTZdH_SzNxenI3lYoZYtO2WJYbeg7FVOKE5rMFgq-ikVHv-WO2mxyI1qyM8FFywNj4Tx1K-bOxgTECq8hFnpsDi-m-i4g/w640-h480/1000037002.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXsmbUC6sM26yCauUURkIhE0H52am5qXPOoXxRNeigqpvQG1iSgf9fk6l-E278EBDfQBGrmRIw2H7f4HXBXcj5w3gEmNdrCkgP4IeoRkoiy18IcdECbK8eW1U13TsoST96sQmwtTdljDEqB9WgQCoJfq-lRuIPzEehveSts6vR-Bmoa1iuH-hr0hbf77I/w640-h480/1000037003.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhKSm_QkzDQWR53HkxnwJVrrHQkqKFuMeWIJoNYTcpXqQwCQOeon7O0k5mzf4tBezM02_xWquWkBUKGYHlu1JU3gFQqk5xrecrjz64RUPHe4AfcdD7d6vA30GcDLtDtl3O6aTBpa1H569aqknj9eYYhTRQSlOYMUXMikL5lb6YvoHUFpKqDiliT2uI77uY/w640-h480/1000037004.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyHNJmR7iJt7OrlicuZ6WlNOTq5M3oRofM8qhyOiX8M9Yo-loty0E-Ao0yu-K83k_AmwSwDhVa0lw6dhNEzyEx4riHAKElydrEeC8vNxbEzpFX5H3WHOR7jcaPHHS5aRfNKSJEuPHuZ3UhQCfpkWiddWlWGkJFe-PrIts4R6PBpmIQJjIHig2Y5hIEnDQ/w640-h480/1000037005.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVVgmviKGLdLuMpNnSVk6IwrV7HqYsp8f44GfHwsY9a0j4S0pLZlbEGgLHonDMBWhNJnuE25bhPdDw58Qzen-Lsh4X-fKWyzw2PTwj3cpTA7NE0cR0zvLkhIvxPCwDPmMiWhOA2kMRSfATbaRSxJ8nbCruNXAmhUCLURaGiLHyP8ci83Yl2ric_t0k1CE/w640-h480/1000037006.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7CMbKMlGHwgz7AmIAsIDzw-HlTECL6_PdiHUwKvOFwE7RmD1nEweuY1WSrmofLpJslR-0rVRjN5YRA_wluqQx3TUOUsQKF5ipRllYer8nct_noEXOXUc4caLZFXN7b5ibHIxhtrVUDxhSmbG1MjN8Z1m0OziHtyCYJIzU1yXSGBJHP0M52IqlhXoNM_k/w640-h480/1000037007.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+
+
+                <div class="gallery-item" data-category="">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXVSssuoGm4SM5JemyLfyz68ioLP6FVZnvyzuoTpMNqyiNSthJNrIFNIbHVZEcdCa8ZLRsiPCdgCO8OEXKTWMuu9h0R-zugcXpcyg3sZfjuI5nX3NcVjZ615TcJu0g8w8KuEp59xC0JZugo6qawcipAhg1DoT77byFSDWXM7931Z4g_0spWG-bLv2hGsI/w640-h482/1000036863.jpg" alt="Event" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>বন্ধুদের সাথে সামান্য আড্ডা</h3>
+                        <p></p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXVSssuoGm4SM5JemyLfyz68ioLP6FVZnvyzuoTpMNqyiNSthJNrIFNIbHVZEcdCa8ZLRsiPCdgCO8OEXKTWMuu9h0R-zugcXpcyg3sZfjuI5nX3NcVjZ615TcJu0g8w8KuEp59xC0JZugo6qawcipAhg1DoT77byFSDWXM7931Z4g_0spWG-bLv2hGsI/w640-h482/1000036863.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ1-8Ys-kCXq1CkWCIvBawKPPe9WSXSQAtAPsf392Dke-Mk_HTLwO-KNtbn6uJCRj8oKk0lQKk4Grvdum4nNwEGnFzD0JHpyeGpxE0Je7BcWkM_PUjmHs-kzqKO70Qt2v_KWfqgGz7SCPZrRUuu6atxBixd3THhmQKQmcL-a9JjSmKiVHjCLoTwEd5HUo/w482-h640/1000036882.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5s1b3w31X6IAQstAoS8b_kwNebsCdYIIBDcz9nf98rUtEZ7pmpNjE-sbCW4Av2TEa2vkThVlMYMQnK9Z-h4zXiK8w-dqm5uPB_0VTLLAV5Sm3V0RUM8kwXPPQ-2T6fUIa3ogoF_RhcCfTQ3JyymmkyqQSteer-YhHhSqpmRODTtk0rY8qFsprmJuR2SQ/w640-h480/1000036860.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZV7pZm8zEz7X1J_op2uQun_OaQJIWavPwtHhpXdiUvlWqmf845VGwMBHYJPvEJfTjOVObM60aH_xWyrZWQlRNuFjfbmQ7kfUa5t_dabDLiscgUW5kU3OLUfL6mrU3p2FOCzjh6miiNjmKEA5i666wLNEHL0S6huFxt5GKj4QuWE2FCNhpflMf1qChlI4/w640-h360/1000036861.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6cF-V2K3_71m8gQk1idfDMsyabsBEFl6IFhyphenhyphenIf7F82yF5F6Uxgm-HQnIfO4ThNiFIhMIs_FJ0C4LgLbz7lWWhchAw5OL4KC78gkw3Ac5FX1cSx8OrKm-i6-xk674kg9gfYul0gNHdcAwVqsCwfWB9OO6ROwzu49EyEEvmc1FX2mqPgz-LFhip8ForYZo/w640-h482/1000036864.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU5gv7qdYGFf8MPm_8cQI0fzpE17V45VZEYYbRwnWR4J9oZKKyWthzUShyphenhyphenEsfc1nEpcgVtSST4dOgc_Bn1qVQ-uKVAAb33jwpvBlWFXQDIL87mGVlKMpkzLBIzyurSXLzEdBFGGzANcc0UDRDNnSDbkgl2LQPPNfFjMXiJYapg-8fat6cg8ENJF6T2KJI/w640-h482/1000036865.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFVLpVVZrFvfzB56z0P4eXsYwTv2h0lcVlnoCC02RuCm62p-4QPBeTvp_Z9YOsPl0983iG_DxX2RAMpHAHNgOdnfYyAw59N4DktenN3gWBmElcq5OtxXg-mik111C_g5fs9mt184l79Ah7nkpzCbxCdlWax6ncr8y66UDi5cCYAdIEtMjgU3y7kIxdO30/w640-h482/1000036866.jpg", "title":"", "desc":""},
+                            {"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3yxqUHoVcflLsMYJcRLYiQp3cTveFfG8_0_4YiT5KrPsf5SdONd_Cc5GZ6BiaFbRCqE_5Od05DL3BV0PJLT3wypIIyb4KhfJt2W6xZo09pLa_8jn0Wv-oVW85HyRhz4JEdNhkJ4RqE5WaQ24E-868WZkF3f6LvRuwu2GEhKOa7BCC9zi6PblaMuOTE1c/s320/1000036867.jpg", "title":"", "desc":""}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+
+
+                <div class="gallery-item" data-category="">
+                    <img src="   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnRUZI54kXXBXDKsRwtH1rn3mK_nIJrTG5cWqegMBTiCRQpYFeY5BshCzR8F30eJY5dyzkkUpn2LG3mJHiVJTBWCh2iNsiJX5JyNUUjY26zGJ2Z0u2Jepwwz5cMy5360dMCGObjrB909GqmGWLHiYqZ5n_NqvZH0Bd79x-lWcYQBvWK57NXuYlcp36WGc/w640-h480/1000036911.jpg  " alt="Event" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>   2023 সালে ঈদের কিছু স্মৃতি   </h3>
+                        <p>       </p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"    https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnRUZI54kXXBXDKsRwtH1rn3mK_nIJrTG5cWqegMBTiCRQpYFeY5BshCzR8F30eJY5dyzkkUpn2LG3mJHiVJTBWCh2iNsiJX5JyNUUjY26zGJ2Z0u2Jepwwz5cMy5360dMCGObjrB909GqmGWLHiYqZ5n_NqvZH0Bd79x-lWcYQBvWK57NXuYlcp36WGc/w640-h480/1000036911.jpg   ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1_eh6jFo8EF6tLBWFuYQWJh-ZTPiDu9eko0YHIhLpuRLhUVYiifefZthUPQ9B93mNK2HYGdRtu6IQDrI-f9u98mnJt9ZrouX2tZsCSEwZY0eYWIfBms09QRvmi24xDDhWUOdSIR_YLocS_rc2yHYcF2CnKhsxaq1HHPv7Xvdm39lyrVyB3J6Z4q-Q9Rs/w640-h288/1000036881.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfXStUA4mUKSW6yLz2fSbEZ413sJd9o02TCKzTFDq3q5dRdq2Qbhras8CjZ3MtLeoFUDFUnzQoqocSSATTjnkvMcpSk61VKPNs0s7Jm4546_m633k3OQd7TYF-xkOqOmy6Q2UOEST7lkCVwD5w_6OY1WrzIq1GXQ3yM4MtKkeSoczEf7-ylTD-T4asBbU/w640-h288/1000036880.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOfsShjxE3w04bhENjM_dC1wYQ9uXIUED7EDccizt_yT0dKJJKGu2ZinbFuAIWZRPZPbguvBvMaFdP5DjZnFEYWqJ0t8sovO8WN3uq9N4yf_4wS3qD3Afpj6hbmCwL8gVijCmpTDsOJ5ZcWtWT-IFhyfqfTGbsWBRxnIfVlJzVxsj3sUFLHLg6vByi-sQ/w360-h640/1000036889.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbn_aLho6J1ScEfIIhnsHgVQJU5T_w51iUeV1DShrU6ykZZZFGwct4XDZJQmcSYY7BP6lA5LESqnIlfuns7VcAoUf-n26Pj9K-d03IiB27CdAvTzhJuBg9_R5btiw8F2zc8s_2mdBboh6xGzaQDsieZIJN_Newa-jJS6Jv1yJYvUtW5DOOrqt5D4uH5MA/w360-h640/1000036890.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioyHKMPneB3cXYngkkWZRWE2-9u2gILp2JDjZikIwznVhWC3g59-A4b_QmRzlHr8CMCRXpDn3QalC1P6959B2w40Uav2Rj0ODpxm6w4VYeqBi15CA4dKi9YUQYaBuELae1FF_p7VHA0qbdEyVnOdm3dpmAXVyN64sX1Orw7ZtRRpbj7l0rkqfRob-5TLo/w640-h360/1000036891.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrNz3Ves_Iy0LrqdmpswDLjm0KW9VcMP5coHWRdC_RBn_NcG-Ejd-Lc_WDpQqaf_DLdDfNPhKPDNBz0ekp9A-KKjCHfOxXp7ncx4VJFtZi7k7H4IwU43nFM580NkO-x7X9YWuUce5zWiK0Wu9Zmu7uy5ExKO0j_KvXj7MZOasomwybZS57QBTWwoU2Eak/w360-h640/1000036892.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikW6TLag-QsguC2ZAiWBlvwPQnJKh7jV3f4MxqQiQR25vyB-G3A4ewnoNG6l2PvOaJJtCgFylNO3WStWW9WYsmemOFoQdhdOWE6l8GDbs-PKjxwGmRiqJh4KGCh8UyJx9gLUPeYZXpj3Nu_vlIbhctj_M7voiwzcOBFS2dza99zELotRzrYmtEaEPQWq0/w360-h640/1000036893.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_GOpjt9hl2wrTUah4lk-AEG2AJfnr0EQn-Xx6nhFybzXNPl_SXnO3M_qQ7cQlWRNeHTywcOAqYMnc5I1iHCvttPTJFBD8-G_PVM5ncLapEMSizvrg6D8OWgiozuAbSTihpmeQvpETRYHgUsJJGIkrPFx5tiliO2h9wMTaVpXh_ECLIsyqKa8q8CxXrQ4/w360-h640/1000036894.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJb8eq8m31SI1xEIZ5yv7dj-gcsMs_WWUwlhR072pQY-mbpREeceKMGuGIGaZHkANp8s5Zkiwb1W2SoRPUiPoA8JN74EXtgUM3MuroDtYC-KUx9a2iIeHJE86iB17tigoqMc20FW698902ewHWK47rC9Ujr6wCp0NqjdBxFljLw9q-kHw2h4_4I4v1As0/w480-h640/1000036895.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEik0Q2tH6aKi-EMn8H7b4isSiwsmDZxJmxsiD-x7gwEmDaji3mViTyjJ-70KtJSvjLKifIpxL4JVYIC-80Z-Oj_oFYgsYm83JPOtLkB6gk-avsOktnvbqX-go-H1pkHThpAd-Xst25fd83kNKFCQk7z6AS7rNQFdpEsv-Clik5xsDEFI9yDxsKbvR7FLzM/w480-h640/1000036896.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUpwKGtrTiBF7GpegYpyWAY_AEtNO1kei1D0attmd2oCyQKKHVlRzfZXdrkp9zy5r98r-K4JSCC4cwWE4NZvZhHO-DLU9naBkz3tUom7ZSaS4ZAXg75Wx-ZG9vDF22bOrq6wd_ouFkFdTB92-I5TNRLLDZzU-58K3d2aDhzPemVSG4tVBKNlg1fxSfqV8/w480-h640/1000036897.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiEz1kFFy7JbQulZf4Z_j1dfSkMLAbPqS4-rm_FyNUp5mdPZDgrhSclD4rFzTJYds142V0ISyU6z732AkcAPuCmetvIaGz3FoZX9kRh_w5uLNUMBcIVWfGDgu4_-KXPIkc5Fw0eTQh5svxn1H_XqjpgIhWC-8LhxdQtf8E60CEI2HjpMxXGAKHCqEMTnk/w480-h640/1000036898.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyJWwYaIgfr_YYG6VR5ZNSElnnHlMf9i0TzGALqWJjGIqZJrvg6iLT1puAW7o_6UiRhawNUe3BpbQHXDcSipXnfYQjPCxMfBtm6seRMYNhKRohQaElG84jZ1MyPuA9L6n7be_el9mFhfV2djjLu0NQwAyZPs4_RG_40yXCnBKgMJeLFzJYeN3mdhC33Ho/w480-h640/1000036899.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBiNs8Cg60TZCRs4E79ruUlNrgaXJoxW0Rr3HlbjbScSU1YkIAd-B1jl9ps4HpwCzMJS78cf1r231xph4azUQexDNcXgFZSaQZEDSPgZjBE8bTAZJwIMjCodA-QjDk-i_vUAHF7K5cXORMC4G_zfgiby0WQB9D1onFTdPKaMDOaoEyEicvNrHPlsX8xDw/w480-h640/1000036900.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhy973XGdUIJK8YkRcmm9gQxwxDIx1fLEHeJyzJEoMJJy6mgI4dwPewvhLc58UUpJsswyEZ0y4n2H0oMiBEGF9H184XD1XNYZ6SK77oMLXX3B5KLkPeIQvBR5deNfJAICtJUYEPf_fqmWt-Sg8BBLR-rHntQ9ox9TJkl1uw0ZTdt1GiWRscuZOYPkHcLVc/w480-h640/1000036901.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRUPNiplvBg0SD7KO6ljWjkK-YbpBcrWDkYzOeMUiNKZpBkJO505_rr_Z3C1PSjcWs8EJZH0x2goLoRa4kiazae-_ILMpRmo1tuZ5c7jLLxSNWak7Pmv9Rh1agH8B4Hd1bAiWfkTN6b8SwxNgQuAmaRCTuhWfXAa2Eg-F1qfVO-eO3qPwQIsTkO66bIz0/w360-h640/1000036902.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBhc0VjQiQtlkFgMsvmM_UHHlKtfd7GYqIUChPMwkHl-IWBSYcgpHlxtegtIqfemqbFk11H89Uh_3TeVx-q2BcYRgFfvcSdk7EPwS9kX4Lcfo01ugIo20UXC8YqR_Bx6877lGhYk38-jIPsKfGYGO-WBg4vYnt405Dtlu5Q35k5aEp55cqlgUFm1_75ew/w360-h640/1000036903.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqQgSqRsiPrk6u-_JbQi2Y0LcVmzG_qgqh_c3hpkQvyNlJnW_tm9ifW23adSUogvLHsHvovo839lr1ZcP6JKf1i2q_fe5zDc3WRC5lg7MAEMXPnYSzheiUhc1kEpARkCB6rFGVly1kpHiVvxSfx8vklALEpsntQVEtKWWVOhe962NYhXXAPWxvfA1KKCY/w640-h480/1000036904.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimSc-pHwtG0IOIj6Rc6n5mAuWnblty2uLVp7IaXCAYWvsPZHZUl90EfQmd-2_cN13THoFidz8PtCsVNaQHFlA1NsYmtFYK-Hot3iuWTx_LARuWbMJT-ResNx_TA7-_FVzWoqD1M6tnQJGJy5LBjuXFNGhFcSsAoMWK66DB8qEzH5jwLELSxICHOfSL30w/w640-h480/1000036905.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjx1waM6PzKonejL2Gf11WQLs1QWNskLSF4hNYUHN-lKMcsoiYqG0kaQ1FY49s6jRekHKZ2DyZyS7j7xri5ldeYCOVUYpFx3QMBE0_Ehprz9jyOPE4prWGjeuPpUa8aYqcltHEQZuMH86ErJniBImmgly50ZMkJ8CtQWioMEK7PRNuvnZQXTrAHS4eXoRY/w640-h480/1000036906.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhl0ZBME5lDdMkCmicwcNWeB5LgFnrzGrOK-vvsc3kWKm7Y_sbp-jMKvZPLJIMPR9_X1JgKfHgIq58q_V50cs5OXQT-8A-3VWigaeE7fqVsQtS0f0VYX_q-hplgzkFcbRLFpXj-UJ4S-wxO7XU5wnzQJcdOe5fJ-wWPBALDinupvkqIjALesHf5hi8eqUs/w480-h640/1000036907.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkcvQ4CQCRXw2KmnVrF9G5dZEUCjc9y34yoqYBRwAo0CXJf5euKnTQgMddRcQaERug-Uku1ZuXvGB-xdEKDjd8uZtXer3azZ4AGs0BkVpLOtsyDV_yhzy2-9C6qu7X4RzRSuyYWp9lAjZGPC8h_XApkuiUdNy8TSBmDi5J48l39y0X5j3UIsKa3plKQ2o/w480-h640/1000036908.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWA4z3f716bMLAf-CeV6hyOa3__Hzo3vt0_797MNZRZ6K7qZdGspZGhyphenhypheny7jeZAJNqLd8DcPznECcdD8IDlx-CHY2bZOWFFqIydgq3ljUjw0momi9Atd5tjkFvFDUJmxpgbIjqbw-fdhXIksDH1YkYRrZAbur5sWQBuy1a2HLBfN38xhD5eB-ozE3L1c_o/w640-h480/1000036910.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"    https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrwY633nExzBAYQRyFtrdWVxNuX5DwiTaN6OMOj0U1z6D99zgNHtykKOgn8fYhPDU9YTcANsi3IrUag_pO0kdkzr7ystld_sUNIfQfGutRhG_BuveC9Dm-aaNPl5lPV2pZHtinfE-X0r9Iie1JaSIuDniuBHpc4XODsLp1Tqjwrz5yna6tJg2B78PXDQo/w640-h480/1000036909.jpg   ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEIAtrt_zVOgVODow9w2D_msVhi65FN19W7me3pdwCbg0LFGUodHbx-k1sKfx2dqYCh4rsk5E4D3NBbltI7ZjwPOHdQBtavg2mOHRxFPkKLDEn7vj8xew9LiKUpYsym7BffJwh1EoRqj_eBEkr2twgoM-UviqYKx143lLJMq-Vm-iEGprE01FlNxSspgg/w480-h640/1000036912.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqNc3FJLEezgY4PyVfuqYRh6rSBK8rW_lPMFS-FRjARUZs72GuDvtDZ8XY66y1w8I2e-s5ek3Ph1pjRIF8F_SsAiTi1yJ43z0pBeg2e9QEr2XPhKNInorgewRIhFRYUI5sXnSmwGSIFK492PZU56CpCHzCTJaDqp8SDkP8QvH79SxV3dGGwUt3lHlLqNE/s320/1000036913.jpg    ", "title":"    ", "desc":"     "}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+
+
+                <div class="gallery-item" data-category="event">
+                    <img src="   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1vuv798q9FMyeIYcp28ZsqsA_GjpSzXML-khGP0iQJyg5BqLEmVNJXbgvb0FIl7I_9VmoMOVnr4l263_qIla2vAz7pJOr1EaWyMhoZJRKLM3vBe6RGg9qo2bAVnooxgfKThF5-qibCTAZd3XtzTWVcHDSCBsf0q9EPl_Hvl2GZwz4LZMCQRQtjlmzdOQ/w640-h288/1000036997.jpg  " alt="Event" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>    পুরানো কিছু স্মৃতি  </h3>
+                        <p>       </p>
+                        <a href="#" class="view-btn" data-images='[
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1vuv798q9FMyeIYcp28ZsqsA_GjpSzXML-khGP0iQJyg5BqLEmVNJXbgvb0FIl7I_9VmoMOVnr4l263_qIla2vAz7pJOr1EaWyMhoZJRKLM3vBe6RGg9qo2bAVnooxgfKThF5-qibCTAZd3XtzTWVcHDSCBsf0q9EPl_Hvl2GZwz4LZMCQRQtjlmzdOQ/w640-h288/1000036997.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"    https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2GjHu2c72z_8dbvrQZ-JtHkv-ay_pTBbpss2_OsgE4yQZEGyVndmV-hBo81PNJ4sYpW6qkyDHxldmL9qZMtn8S1bkb99whbhCAPaL9vKNQ0xFIV9VQHQuaZQ57MlkYS53dsn58iDdgJek9yUCw_wtqbPYp1W_IVqYIKz9HdpsaJkRB1HNlXXymxx3i-A/w360-h640/1000036995.jpg   ", "title":"    ", "desc":"     "},
+                            {"src":"    https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgau45t8MZ1TuiiFYtrlPQMxNpD10jwn8ov3-i_3aPvMs0dU9NcI7RE8oyxWGTkhVLsx6hsPr5RYgrxndOK4F8qf8B5qiy4xuomVtBFGzqq9kXfBUpfAIb-HVApO0ffI69Aq_whxKaZYpRsTlKuulnpPwyh6loDvfQhwI506VsFj48dN_QJIe-zpfILlxQ/w360-h640/1000036994.jpg   ", "title":"    ", "desc":"     "},
+                            {"src":"    https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXafp5rqueA_DHciDb03epLMnqxsOyroUaKjP0dfs_DUiNySqJTGDUUI1T53shbFKMjQ-7ncGqngwOufTt69CgLSFcbq1ZJH4X_CCdK8WOJdalt29vbNeZIzPPAEWKaYT2vjaJBKgSAtZS_cWyMKgC3comZiPz9wHl04W50A1a_XVlW3rTpA26QD9MZcA/w640-h360/1000036993.jpg   ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiT8mJxOn6Dix48oZTy6EtNLaBBR8iekkOkIjtT_OQdlSPkgJFYYPDE2Mu29rjX0I_CUiAKC9Smcg83ehkyzkL29oj_pagzmcgd4qpoqdDsrXtFnOBjluVH84GKQZNi3tP4unRQFWE8qdrTy5Ate4sF__xGu20IZA8emQlZv9anmX5iGXQ7TNcrgA6zRBU/w640-h304/1000036992.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-Lduv1TVD92aQj-2hAnkNtxGuWaNYZkELf0MvRnRfbXzBwPAVyWigzh06t7iSKPZ86wqz5iUZEN88Uhm834zfsNllG5C3gpq8x9NbDMCWQM1YQku0IeioR-TtB3Phjc8PdMVW0rO2rxjWWn_7puiuTv1J6sKwKQs1zqexoj9tHwfy0Nsy4zMh14xHGdw/w640-h480/1000036991.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqdhT3CJqmhMRV1GgXrN1LbKQpkuUcb_h2-sQ2mxFjWUuae3njmAD8cNfFAFBhmZxyj7sBSfotjWR7SLXUde1uC44OOYzVi2JDVSBCEhu2karDMV3gWuZ65jjGYobqn26EsWqC_9IczEYxmcfZknP8WiBznjKthshr_ObJzMtkyors_iouan59mJ_wJg8/w640-h360/1000036990.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGSkTgZAr0-w1mpfw7QjJ4fiJ80qBUvdOoojiLjcKcaLIjBrJuDJSjMTutIxoViyPTnyytOPXR9eI_571zk0auAgH1K8DNITQjTe99ovb6dsGCRrZ29XLI4LysMv3ESyw8jotXNXGKdgWkvz9vW64hkvgQca7gexYg_pePTPYutrcQSFXxIpLCE2e4FJk/w360-h640/1000036971.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi94-TbBKWfLEAFvBDxYThyphenhyphenIKJLIG93I7bV-D9tk9YCkdWkB2TBsui767pgt0frR27CrIObxJgTHlWyQgDl_ew9SLX4ba7rSHn9QtC9rLB1lHnZirWeCUUHZ7m2EPR0PC7vELA3vHHutKLHSWM4Lw-bo27lYXajxK6792QCEAYRHZcf8RF7J5SFlQKxaBY/w640-h288/1000036972.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh8zs6dJF_J6xTWIqkW1PvgYIU_-zH1BT-pNNG1cB5XwhMhy2ZXEasi4N8W9Qg6W4vaBC-Z0Sabm3fDLOYiqz3d3e-yoEiFZqdrl6r5vC6c7C8T_fu5C6lwDRnC_otgribXqax067r381k25KKLVJBviOygm5kBo-i5W9kPPMGNlWG6-zdq2E4_Y76mcQ/w640-h360/1000036973.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjocPfTuWYIKJaxa03-JNeQfMlFcbxuNF78cXUvzMsPE4OogRYQ1ThWW4fMAxVdi-ielmVODuNj8P-VRwMmwZycmV9LdmkZzrSZm7pk2f_8CCOi8dutp4GBtTOJtbp19P-PxOqstyxVix9nXxAUxYsWr3RIgRp_Px7uVUifBQLzZSi9sAauVlK2TVr1838/w360-h640/1000036974.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipQJqDeEyYTPWSCTRgg9_Qyy8AiN1EnRbjk9uJqRTtCE56soc9bzLeaz6lSZs7hTsWmeoX1UQcuSO7ZD8gtmRTQg8Xm6oKthBS69XRk74OUUGEDByw5aHnSp36as4f9BsAHVRLAwVPUa1-5XmCgsvldg1J4O2FvBKYvo6pvKyLL1YaNG6jkuO-pIDO-48/w360-h640/1000036975.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiB9SC2f0sv4d1WPb6FgX3kHgvr3C0jgVtzhhzjmyZZIKlgOjjUJMh15uoVfSKipvL3AJvSPzwrSd9GyvM0798VaKqZ1uLRdBx2lGQcPffXCzhJnQO6qEz7JDIHleQvdgDsxT9C5vqKE55lDmdH05yZe3pDc8DEs2Kmq8rMbAXcrKVvrBccsx4naOev3vE/w640-h480/1000036976.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiieqsqhC8xNgWBw5LAnQHKeT1a0bwqNDH1-FBAUEHz8bJc3wFsGjCqeBYjFLWiR4iQ_eZHDAsYpOfe4McKAllQfK2Amd1_4nUbWBPdsU7k6cwLv1mZBJ0NnP_BbDG12XevSdGz2KiGnDDkA60gxfS2vma3FCGzxZsQEljXoVYp0XluCdVrC6n996Gle1Y/w296-h640/1000036977.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxUso3tNDrgnL96cZyRV4k4rdcWp61RSzUcrgQz6kPJWzp83SQf4RWv_-_uRrrPTZMgILVass60UWsrtZ7uZhXckwWQBCj1RpKvo74sO6tMHCcAvuQ6rE6tn_UnHy2_RKSEy7HuySR-UY-of5kWgmdc9KvbbDJyjws1CvXHqOy80BDe4lkuGkOSNzRMgI/w640-h296/1000036979.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcicyZKHpMgqLdsDStsVuVi5RDTanE0zi_7B6yhcCG6kevVmOueysk6ZWou-pnGvjHiMBfRHNV-Vfv9QjsN4s_BX82YaG9Zzoz20eiptXeGgtsC-1UIJEQZpNGUdaSgh0XTTauFLUUhSTbuY34wYkmf1eg0hyGt5lx0GK7QW1YJyD3aCjvs4tqFmsvfAk/w640-h296/1000036980.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdAt25hRjp38R4iD9h7KoGrKmXB7zYRwxhARPEUuUxXMGKeqbmAzo3Z5dAbHkUbDJVjfAnVi9xOZr0xgX5sdAUJPxyoZDVuLeTKJs5NAbYnjBBBd4izJ6NO-1Z9AZUttAwJLHUxjbzmcIrrXblJKBqoR8ZwBWarjHOlzRUHCSYXA9IHlKcLV1GpTHXcXw/w296-h640/1000036981.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz59uiRbs43EeCum30CL9khDZyDLZc1jBixPmObnShNjiXR1eH8R2FswulKLmWNkJNI5GlUxwj0Fb1Uk8k5RoU5CaNiX4Xclud1LFBgUQKDlIyhAwg3t8wsbyoHb1O8Cn6ekzqEYlqA3ZHCQgXqPM9En09zlzKj_thrgYcN8HdFFB3YtjkjZv_lrNPxcI/w640-h296/1000036982.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEja1JqEIVaCmYxfOSO04-HWl20uysEURtXkinUfzVaBeZkQdNCiL9_SffXd8l_vAKF0NfZr3Y2Ccno9nT3apz9fXYp1y6wI7lycDds7ohRIlhtzAkLSA92PnIceEwqkZ2T47i6pf8D5p2R25gf2yVxcQGSzB-PNNaZB-xV9V8EM0OLuRh8HYYmDZuRGrWw/w296-h640/1000036983.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhul-mhRJPzzF5HLaMefidhrsmVgW5-mR0q523mmNgzJQEq_ISP0eaAfF4mnPPidN-obSYAIMKgqfZ4tXeFe8yEeBD9TidqlUXoYIhLIYwqcAhVOKJngDcIKLUtqrlKo4A2z0oysABeipoUr1AGn0bke88f5WjZt-eIMsuIc0qpgkRYjWp7iCGJe70JAeY/w640-h296/1000036984.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEir7RvTZ4Vo1sbLRIg583jBi8rKbtgIxG70uQew4gIuGCkPnM1eAWhY1o0pb7DiEHbvkCC05wE0LoqdZ2GcBQ2nuDNApzMStIbjhoagPsqat5BDVsgeT6i8xLReHk1Ok6W_q5xit7czi98o1pbXqI_toV1ea4zePfjNk6iOy-mA4tTEthueuCWVggoWXBE/w296-h640/1000036985.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZF09GkycLJUT52itm1u7tU3d6i8MuPON-a-BUUHiz4hJojKzJnovJMXoGvIMOUfOpife1RCRtG6jI6XST52KwOiO3Xoyq6U4jjUvhGjJOwgfHG7xS14NXG92ufGglPpuwVj-y0FRm9PNp50ko06vYwrYQnQrEQ3MnoyUiWvhyphenhyphenVE8cQByvx7KzGSeK-ps/w296-h640/1000036986.jpg     ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgivij_zkCxsyaN8T9m3o9O46F4dkwW-1aPxBhoqPYKUHVjKqNTYc9bUOBi1Q-LvTULUV8mq1EXjNl5i4MgY2FDf8tPTgwiPE94YA1NgMNFR5FeYm5s6gwaX6R8cRgwSgKJZ1AJqfGIhY1nrVjLZUGlTCChumfhiEzCeY7HeBHZZCMFwNauv9Baqji1wpg/w296-h640/1000036987.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"   https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZTW9KUXMPhKBPZjRDpNza98NFrqgt1M1aQkGGupDoiTii7vw_znS8UeKyVHauALQaBtfvWGJit1_mK_XIXaDGFoW-L4RdF8fJEoCSHUB1toYq5xlk_-wFzhjBBZuaBxmOdIZ-x9vfIedAAzLsbWRJl2B3GtP2IDjQS8xSfVz0QAYHzlbTMZJRBfOxXqI/w296-h640/1000036988.jpg    ", "title":"    ", "desc":"     "},
+                            {"src":"  https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirASeaZaPWLGo2nq5vVDUg66ETDtDwnyqe7p-jZiGp5BMcLNd5cgafzsMt55SVrfH2-XoPMv1qz4c5mp2calc4HGvjtY26B3lTBaRogl7RCAAqfsQdlV5JjfjeyrYa9tnSzuZBDMAJjUclQ4-mZ6r06B5XFqdG6KUAlrBMz2LL1KbvNN91BR5JWWzq_LQ/w296-h640/1000036989.jpg     ", "title":"    ", "desc":"     "}
+                        ]'>বড় দেখুন</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5fAus4nNLAcbE8LI1YQNB5FOxXWmPtpyle837UOkeZXphOYwTr3h82kQKJvMOWFnyJKant4ck2rr2tokivTZoPCTFutj2la3bKs2BjdyGDSuUQNyXRYRNjmoVldf7sxp-zKcXxo1_lSOEVdErIGkktM3Wgc1g_Xsal4QoeYsmehPi89EsLsqd1DBkjfc/w632-h640/jahirul-islam-akash.png" alt="Logo" class="footer-logo">
+                <h3>জহিরুল ইসলাম আকাশ</h3>
+                <div class="footer-links">
+                    <a href="about.html">আমার সম্পর্কে</a>
+                    <a href="index.html">হোম</a>
+                    <a href="contact.html">যোগাযোগ</a>
+                    <a href="footers/privacy-policy.html">প্রাইভেসি পলিসি</a>
+                    <a href="footers/Conditions.html">শর্তাবলী</a>
+                    <a href="footers/faq.html">প্রশ্নোত্তর</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/jahirulislamAKASHoriginal" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/jahirulislamaks" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="https://www.instagram.com/jahirulislamakashofficial" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.pinterest.com/jahirulislamakashofficial" target="_blank"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <p class="copyright">© 2025 JaHiRuL isLaM AKASH। সকল স্বত্ত্ব সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ইমেজ মডাল -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">×</span>
+            <div class="image-counter" id="imageCounter">1/9</div>
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="zoomIn"><i class="fas fa-search-plus"></i></button>
+                <button class="zoom-btn" id="zoomOut"><i class="fas fa-search-minus"></i></button>
+                <button class="zoom-btn" id="resetZoom"><i class="fas fa-expand"></i></button>
+            </div>
+            <img src="" alt="Gallery Image" class="modal-main-image" id="modalMainImage">
+            <div class="modal-thumbnails" id="modalThumbnails"></div>
+            <div class="image-info">
+                <h3 id="imageTitle">Image Title</h3>
+                <p id="imageDesc">Image Description</p>
+            </div>
+            <div class="modal-nav">
+                <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // ফিল্টার বাটন ফাংশনালিটি
+            $('.filter-btn').click(function() {
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                const filter = $(this).data('filter');
+                if (filter === 'all') {
+                    $('.gallery-item').show();
+                } else {
+                    $('.gallery-item').hide();
+                    $(`.gallery-item[data-category="${filter}"]`).show();
+                }
+            });
+            
+            // মডাল ভ্যারিয়েবল
+            let currentIndex = 0;
+            let images = [];
+            let slideInterval;
+            let isPaused = false;
+            let scale = 1;
+            
+            // বড় দেখুন বাটনে ক্লিক ইভেন্ট
+            $('.view-btn').click(function(e) {
+                e.preventDefault();
+                images = JSON.parse($(this).attr('data-images'));
+                openModal(images);
+            });
+            
+            // মডাল খোলার ফাংশন
+            function openModal(imagesArray) {
+                const modal = $('#imageModal');
+                const thumbnails = $('#modalThumbnails');
+                
+                images = imagesArray;
+                currentIndex = 0;
+                scale = 1;
+                
+                // থাম্বনেইল লোড করুন
+                thumbnails.empty();
+                images.forEach((image, index) => {
+                    thumbnails.append(`
+                        <img src="${image.src}" class="thumbnail" data-index="${index}" alt="Thumbnail ${index + 1}">
+                    `);
+                });
+                
+                // প্রথম ইমেজ লোড করুন
+                updateMainImage();
+                
+                modal.fadeIn();
+                startSlideShow();
+                
+                // থাম্বনেইল ক্লিক ইভেন্ট
+                $('.thumbnail').click(function() {
+                    const index = $(this).data('index');
+                    currentIndex = index;
+                    pauseSlideShow();
+                    updateMainImage();
+                });
+            }
+            
+            // প্রধান ইমেজ আপডেট করার ফাংশন
+            function updateMainImage() {
+                const mainImage = $('#modalMainImage');
+                const currentImage = images[currentIndex];
+                
+                mainImage.css('transform', 'scale(1)');
+                scale = 1;
+                
+                mainImage.attr('src', currentImage.src);
+                $('#imageTitle').text(currentImage.title);
+                $('#imageDesc').text(currentImage.desc);
+                $('#imageCounter').text(`${currentIndex + 1}/${images.length}`);
+                
+                // সক্রিয় থাম্বনেইল হাইলাইট করুন
+                $('.thumbnail').removeClass('active');
+                $(`.thumbnail[data-index="${currentIndex}"]`).addClass('active');
+                
+                // থাম্বনেইল ভিউতে স্ক্রোল করুন
+                const thumb = $(`.thumbnail[data-index="${currentIndex}"]`)[0];
+                if (thumb) {
+                    thumb.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+                }
+            }
+            
+            // স্লাইড শো শুরু করার ফাংশন
+            function startSlideShow() {
+                clearInterval(slideInterval);
+                isPaused = false;
+                slideInterval = setInterval(() => {
+                    nextSlide();
+                }, 3000);
+            }
+            
+            // সামনের স্লাইডে যাওয়ার ফাংশন
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateMainImage();
+            }
+            
+            // পূর্ববর্তী স্লাইডে যাওয়ার ফাংশন
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateMainImage();
+            }
+            
+            // স্লাইড শো থামানোর ফাংশন
+            function pauseSlideShow() {
+                clearInterval(slideInterval);
+                isPaused = true;
+            }
+            
+            // পূর্ববর্তী ও পরবর্তী বাটনে ক্লিক ইভেন্ট
+            $('#prevBtn').click(function() {
+                prevSlide();
+                if (isPaused) {
+                    startSlideShow();
+                }
+            });
+            
+            $('#nextBtn').click(function() {
+                nextSlide();
+                if (isPaused) {
+                    startSlideShow();
+                }
+            });
+            
+            // ক্লোজ বাটনে ক্লিক ইভেন্ট
+            $('#modalClose').click(function() {
+                $('#imageModal').fadeOut();
+                clearInterval(slideInterval);
+            });
+            
+            // কী-বোর্ড নেভিগেশন
+            $(document).keydown(function(e) {
+                if ($('#imageModal').is(':visible')) {
+                    if (e.keyCode == 37) { // Left arrow
+                        prevSlide();
+                    } else if (e.keyCode == 39) { // Right arrow
+                        nextSlide();
+                    } else if (e.keyCode == 27) { // Escape
+                        $('#modalClose').click();
+                    } else if (e.keyCode == 32) { // Space
+                        if (isPaused) {
+                            startSlideShow();
+                        } else {
+                            pauseSlideShow();
+                        }
+                    }
+                }
+            });
+            
+            // জুম কন্ট্রোলস
+            $('#zoomIn').click(function() {
+                scale += 0.1;
+                $('#modalMainImage').css('transform', `scale(${scale})`);
+            });
+            
+            $('#zoomOut').click(function() {
+                if (scale > 0.5) {
+                    scale -= 0.1;
+                    $('#modalMainImage').css('transform', `scale(${scale})`);
+                }
+            });
+            
+            $('#resetZoom').click(function() {
+                scale = 1;
+                $('#modalMainImage').css('transform', 'scale(1)');
+            });
+            
+            // মডাল বাইরে ক্লিক করলে বন্ধ হবে
+            $(document).mouseup(function(e) {
+                const modal = $('#imageModal');
+                if (!modal.is(e.target) && modal.has(e.target).length === 0) {
+                    modal.fadeOut();
+                    clearInterval(slideInterval);
+                }
+            });
+        });
+    </script>
+     <script src="name-fixer.js"></script>  <!-- লক্ষ্য করুন: প্রথমে / আছে -->
+</body>
+</html>

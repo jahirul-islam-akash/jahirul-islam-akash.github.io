@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>গোপনীয়তা নীতিমালা | জাহিরুল ইসলাম আকাশ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #4a8fd5;
+            --accent-color: #e74c3c;
+            --text-color: #2c3e50;
+            --light-bg: #f5f7fa;
+            --white: #ffffff;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hind Siliguri', 'SolaimanLipi', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2c5282);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.5;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .date {
+            font-size: 1rem;
+            opacity: 0.9;
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        
+        /* Main Content */
+        .privacy-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .privacy-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+        }
+        
+        .intro {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .intro::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        /* Section Styles */
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(74, 143, 213, 0.05);
+            transition: var(--transition);
+        }
+        
+        .section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .section p, .section ul {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+        
+        .section ul {
+            padding-left: 25px;
+            list-style-type: none;
+        }
+        
+        .section li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .section li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-color), #2c5282);
+            color: var(--white);
+            font-size: 1rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .lock-icon {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: #c0392b;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .privacy-content {
+                padding: 25px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section h2 {
+                font-size: 1.3rem;
+            }
+            
+            .section p, .section ul {
+                font-size: 1rem;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-lock"></i> গোপনীয়তা নীতিমালা</h1>
+            <div class="date">প্রযোজ্য তারিখ: ০১ জুন ২০২৫</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="privacy-content">
+            <div class="intro">
+                <p>স্বাগতম! এটি জাহিরুল ইসলাম আকাশ এর ব্যক্তিগত ওয়েবসাইট। এই ওয়েবসাইটে আপনার গোপনীয়তা আমাদের জন্য অত্যন্ত গুরুত্বপূর্ণ। এখানে কেবল আমার নিজের লেখা গান, গজল, কবিতা, ইসলামিক লেখনী, এবং ব্যক্তিগত ছবি ও তথ্য প্রকাশ করা হয়েছে। এই নীতিমালায় ব্যাখ্যা করা হয়েছে, আপনার ভিজিটের সময় আমরা কীভাবে কোনো তথ্য সংগ্রহ বা সংরক্ষণ করি না।</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-user-shield"></i> ১. আমরা কোনো ব্যক্তিগত তথ্য সংগ্রহ করি না</h2>
+                <p>এই ওয়েবসাইট একটি সম্পূর্ণ স্ট্যাটিক ওয়েবসাইট যা শুধুমাত্র তথ্য প্রদর্শনের জন্য তৈরি করা হয়েছে:</p>
+                <ul>
+                    <li>ব্যবহারকারীর কোনো ব্যক্তিগত তথ্য সংগ্রহ করে না</li>
+                    <li>কোনো ধরনের কুকি (Cookies) ব্যবহার করে না</li>
+                    <li>কোনো ধরনের ফর্ম বা রেজিস্ট্রেশন সিস্টেম নেই</li>
+                    <li>কোনো লগইন বা একাউন্ট তৈরি করার প্রয়োজন নেই</li>
+                    <li>গুগল অ্যানালিটিক্স বা অন্য কোনো ট্র্যাকিং টুল ব্যবহার করে না</li>
+                </ul>
+                <p>অতএব, আপনি নিশ্চিন্তে ওয়েবসাইটটি ব্যবহার করতে পারেন, কারণ আপনার কোনো তথ্য আমাদের কাছে আসে না বা সংরক্ষিত হয় না।</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-handshake"></i> ২. তৃতীয় পক্ষের পরিষেবা</h2>
+                <p>এই ওয়েবসাইটে কোনো তৃতীয় পক্ষের বিজ্ঞাপন, এমবেডেড কনটেন্ট, বা ট্র্যাকিং কোড ব্যবহৃত হয় না। আমরা কোনো ধরনের থার্ড-পার্টি সার্ভিস ব্যবহার করি না যা আপনার ডেটা সংগ্রহ করতে পারে।</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-copyright"></i> ৩. কনটেন্টের স্বত্বাধিকার</h2>
+                <p>এই ওয়েবসাইটে প্রকাশিত সমস্ত লেখা, ছবি ও অন্যান্য কনটেন্টের সম্পূর্ণ স্বত্ব জাহিরুল ইসলাম আকাশ এর নিজের।</p>
+                <p>এই কনটেন্টগুলো অনুমতি ছাড়া কপি, পুনঃপ্রকাশ, বা বাণিজ্যিকভাবে ব্যবহার করা যাবে না। ইসলামিক শিক্ষা বা ব্যক্তিগত প্রয়োজনে ব্যবহার করতে চাইলে, দয়া করে পূর্বে আমার সাথে যোগাযোগ করুন।</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-envelope"></i> ৪. যোগাযোগের মাধ্যম</h2>
+                <p>যদি আপনি এই ওয়েবসাইট বা এর কনটেন্ট নিয়ে কোনো প্রশ্ন বা মতামত জানাতে চান, তাহলে ওয়েবসাইটে দেওয়া ইমেইল বা সোশ্যাল মিডিয়া লিংকের মাধ্যমে যোগাযোগ করতে পারেন। আমি সাধারণত ২৪-৪৮ ঘন্টার মধ্যে উত্তর দেওয়ার চেষ্টা করব।</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-sync-alt"></i> ৫. পরিবর্তন</h2>
+                <p>এই গোপনীয়তা নীতিমালা প্রয়োজনে যেকোনো সময় হালনাগাদ করা হতে পারে। নীতিমালায় পরিবর্তন হলে, তা এই পৃষ্ঠায় উল্লেখ করা হবে এবং প্রযোজ্য তারিখ আপডেট করা হবে।</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p><i class="fas fa-lock lock-icon"></i> আপনার গোপনীয়তা আমাদের কাছে অত্যন্ত গুরুত্বপূর্ণ — ধন্যবাদ ওয়েবসাইটটি ভিজিট করার জন্য!</p>
+            <div class="signature">© 2025 JaHiRuL isLaM AKASH. সর্বস্বত্ব সংরক্ষিত।</div>
+        </div>
+    </footer>
+    
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

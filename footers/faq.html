@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Favicon -->
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>প্রশ্নোত্তর (FAQ) | জাহিরুল ইসলাম আকাশ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0f2d52;
+            --primary-light: #1a4b8c;
+            --accent: #e63946;
+            --light-blue: #a8dadc;
+            --cream: #f1faee;
+            --text-dark: #1d3557;
+            --text-light: #457b9d;
+            --white: #ffffff;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hind Siliguri', 'SolaimanLipi', Arial, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            color: var(--white);
+            padding: 60px 0 80px;
+            text-align: center;
+            margin-bottom: -40px;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.08)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .last-updated {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            display: inline-block;
+            padding: 8px 25px;
+            background-color: rgba(255,255,255,0.15);
+            border-radius: 30px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Main Content */
+        .faq-container {
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .intro-text {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .intro-text::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent), var(--primary-light));
+        }
+        
+        /* FAQ Items */
+        .faq-item {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--light-blue);
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .faq-question {
+            background-color: var(--light-blue);
+            color: var(--primary-dark);
+            padding: 20px 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(168, 218, 220, 0.8);
+        }
+        
+        .faq-question i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .faq-answer {
+            padding: 25px;
+            background-color: var(--white);
+            font-size: 1.05rem;
+            display: none;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer ul {
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .faq-answer li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .highlight {
+            background-color: rgba(230, 57, 70, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Additional Info */
+        .additional-info {
+            background-color: rgba(241, 250, 238, 0.7);
+            border: 1px solid rgba(168, 218, 220, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .additional-info::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(168,218,220,0.1)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        .additional-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .additional-info h3 i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            color: var(--white);
+            font-size: 1.1rem;
+            position: relative;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            margin-top: -30px;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--accent), var(--light-blue));
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background-color: #d62839;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: #d62839;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 50px 0 70px;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            
+            header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .faq-container {
+                padding: 30px;
+            }
+            
+            .faq-question {
+                font-size: 1.2rem;
+                padding: 15px 20px;
+            }
+            
+            .additional-info {
+                padding: 20px;
+            }
+            
+            footer {
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+                padding-top: 50px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .last-updated {
+                font-size: 0.9rem;
+                padding: 6px 15px;
+            }
+            
+            .faq-question {
+                font-size: 1.1rem;
+            }
+            
+            .faq-question i {
+                font-size: 1.2rem;
+                margin-right: 10px;
+            }
+            
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-question-circle"></i> প্রশ্নোত্তর (FAQ)</h1>
+            <div class="last-updated">শেষ হালনাগাদ: ০১ জুন ২০২৫</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="faq-container">
+            <div class="intro-text">
+                এই পৃষ্ঠাটি ওয়েবসাইট ভিজিটরদের সাধারণ ও ঘন ঘন জিজ্ঞাসিত প্রশ্নগুলোর সহজ ও স্পষ্ট উত্তর দিতে তৈরি করা হয়েছে। আপনি যদি নতুন ভিজিটর হন, তাহলে এই প্রশ্নোত্তর পৃষ্ঠাটি আপনার জন্য খুবই সহায়ক হবে।
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <i class="fas fa-globe"></i> ১. এই ওয়েবসাইটটি কিসের জন্য?
+                </div>
+                <div class="faq-answer">
+                    <p>এই ওয়েবসাইটটি জাহিরুল ইসলাম আকাশ এর ব্যক্তিগত পোর্টফোলিও, যেখানে তিনি তাঁর লেখা:</p>
+                    <ul>
+                        <li>কবিতা</li>
+                        <li>গান</li>
+                        <li>গজল</li>
+                        <li>ইসলামিক লেখনী</li>
+                        <li>ব্যক্তিগত ছবি</li>
+                    </ul>
+                    <p>প্রকাশ করেন এবং সংরক্ষণ করেন।</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <i class="fas fa-copyright"></i> ২. ওয়েবসাইটের কনটেন্ট ব্যবহার করার নিয়ম কী?
+                </div>
+                <div class="faq-answer">
+                    <p>ওয়েবসাইটের সমস্ত লেখা ও ছবি <span class="highlight">স্বত্বাধিকার সংরক্ষিত (copyrighted)</span>।</p>
+                    <ul>
+                        <li>অনুমতি ছাড়া কোনো কনটেন্ট কপি, ডাউনলোড, পুনঃপ্রকাশ বা বাণিজ্যিকভাবে ব্যবহার করা কঠোরভাবে নিষিদ্ধ।</li>
+                        <li>যদি আপনি ব্যক্তিগত বা শিক্ষামূলক কাজে ব্যবহার করতে চান, তবে পূর্বে যোগাযোগ করে অনুমতি নিতে হবে।</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <i class="fas fa-user-shield"></i> ৩. এই ওয়েবসাইটে কি আমার ব্যক্তিগত তথ্য নেওয়া হয়?
+                </div>
+                <div class="faq-answer">
+                    <p>না। এই ওয়েবসাইট:</p>
+                    <ul>
+                        <li>আপনার কোনো ব্যক্তিগত তথ্য সংগ্রহ করে না</li>
+                        <li>কুকি বা ট্র্যাকিং টুল ব্যবহার করে না</li>
+                        <li>ফর্ম, লগইন, বা সাবস্ক্রিপশন সিস্টেম নেই</li>
+                    </ul>
+                    <p>আপনি সম্পূর্ণ গোপনীয়তা বজায় রেখে ওয়েবসাইটটি ব্যবহার করতে পারেন।</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <i class="fas fa-sync-alt"></i> ৪. নতুন কনটেন্ট কতদিন পর পর যোগ হয়?
+                </div>
+                <div class="faq-answer">
+                    <p>নিয়মিত সময় অনুযায়ী নতুন লেখা, ছবি, বা গজল সংযোজন করা হয়। আপনি ওয়েবসাইটে মাঝে মাঝে ফিরে এসে নতুন আপডেট দেখতে পারেন।</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+    <div class="faq-question" onclick="toggleAnswer(this)">
+        <i class="fas fa-envelope"></i> ৫. আমি কীভাবে যোগাযোগ করব?
+    </div>
+    <div class="faq-answer">
+        <p>আপনি নিচের যেকোনো মাধ্যমে যোগাযোগ করতে পারেন:</p>
+        <li>🌐 ইমেইল /ফেসবুক / ইনস্টাগ্রাম / অন্যান্য সোশ্যাল মিডিয়া (যা ওয়েবসাইটে দেওয়া থাকবে)</li>
+        
+        <div class="contact-methods">
+            <!-- Email -->
+            <div class="contact-method">
+                <div class="contact-icon email">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <span class="contact-type">ইমেইল</span>
+                    <a href="mailto:jahirulislamakashofficial@gmail.com" class="contact-link">jahirulislamakashofficial@gmail.com</a>
+                </div>
+            </div>
+            
+            <!-- Social Media -->
+            <div class="social-media">
+                <p class="social-media-title">সোশ্যাল মিডিয়া:</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/jahirulislamAKASHoriginal" target="_blank" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/jahirulislamaks" target="_blank" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jahirulislamakashofficial" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jahirulislamakashofficial" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@jahirulislamakash" target="_blank" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="../contact.html" class="contact-btn"><i class="fas fa-paper-plane"></i> যোগাযোগ করুন</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Contact Methods Styles */
+    .contact-methods {
+        margin-top: 20px;
+    }
+    
+    .contact-method {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        background: rgba(241, 250, 238, 0.7);
+        padding: 15px;
+        border-radius: 10px;
+        transition: var(--transition);
+    }
+    
+    .contact-method:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 1.3rem;
+        color: white;
+    }
+    
+    .contact-icon.email {
+        background: linear-gradient(135deg, #e63946, #e63946);
+    }
+    
+    .contact-details {
+        flex: 1;
+    }
+    
+    .contact-type {
+        display: block;
+        font-weight: 600;
+        color: var(--primary-dark);
+        margin-bottom: 5px;
+    }
+    
+    .contact-link {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: var(--transition);
+        word-break: break-all;
+    }
+    
+    .contact-link:hover {
+        color: var(--accent);
+        text-decoration: underline;
+    }
+    
+    /* Social Media Styles */
+    .social-media {
+        margin-top: 25px;
+    }
+    
+    .social-media-title {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-dark);
+    }
+    
+    .social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        transition: var(--transition);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .social-icon:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    
+    .social-icon.facebook {
+        background: linear-gradient(135deg, #3b5998, #1877f2);
+    }
+    
+    .social-icon.twitter {
+        background: linear-gradient(135deg, #1da1f2, #1da1f2);
+    }
+    
+    .social-icon.instagram {
+        background: linear-gradient(135deg, #e4405f, #833ab4);
+    }
+    
+    .social-icon.linkedin {
+        background: linear-gradient(135deg, #0077b5, #00a0dc);
+    }
+    
+    .social-icon.youtube {
+        background: linear-gradient(135deg, #ff0000, #cd201f);
+    }
+</style>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <i class="fas fa-pen-fancy"></i> ৬. ওয়েবসাইটের কনটেন্ট কি নিজে তৈরি করা?
+                </div>
+                <div class="faq-answer">
+                    <p><span class="highlight">হ্যাঁ</span>। এই ওয়েবসাইটে প্রকাশিত সব গান, কবিতা, গজল ও লেখা জাহিরুল ইসলাম আকাশ নিজ হাতে রচিত ও সম্পাদিত।</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <i class="fas fa-exclamation-triangle"></i> ৭. কনটেন্ট কপি করলে কি সমস্যা হতে পারে?
+                </div>
+                <div class="faq-answer">
+                    <p><span class="highlight">হ্যাঁ</span>। কনটেন্ট কপি বা চুরি করলে:</p>
+                    <ul>
+                        <li>কপিরাইট আইন অনুযায়ী আইনি ব্যবস্থা গ্রহণ করা হতে পারে</li>
+                        <li>ওয়েবসাইটের নিরাপত্তা বিভাগ বিষয়টি পর্যবেক্ষণ করে</li>
+                    </ul>
+                    <p>তাই দয়া করে সম্মান বজায় রেখে ব্যবহার করুন।</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <i class="fas fa-comment-dots"></i> ৮. আমি কি কনটেন্ট সম্পর্কে মতামত দিতে পারি?
+                </div>
+                <div class="faq-answer">
+                    <p><span class="highlight">অবশ্যই!</span> আপনি চাইলে ইমেইলের মাধ্যমে আপনার মতামত, উৎসাহ বা পরামর্শ পাঠাতে পারেন। এটি লেখকের জন্য অনুপ্রেরণার উৎস।</p>
+                </div>
+            </div>
+            
+            <div class="additional-info">
+                <h3><i class="fas fa-info-circle"></i> অতিরিক্ত তথ্য</h3>
+                <ul>
+                    <li>ওয়েবসাইটে প্রকাশিত কনটেন্ট মূলত বাংলা ভাষাভিত্তিক।</li>
+                    <li>এটি সম্পূর্ণ ব্যক্তিগত প্রকল্প — কোনো বিজ্ঞাপন বা ব্যবসায়িক উদ্দেশ্য নেই।</li>
+                    <li>ভবিষ্যতে ভিডিও, অডিও বা ই-বুক যুক্ত হওয়ার সম্ভাবনা রয়েছে।</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>আপনার যদি অন্য কোনো প্রশ্ন থেকে থাকে যা এখানে নেই, তাহলে অনুগ্রহ করে আমাদের সাথে যোগাযোগ করুন</p>
+            <a href="../contact.html" class="contact-btn"><i class="fas fa-paper-plane"></i> যোগাযোগ করুন</a>
+        </div>
+    </footer>
+    
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // Toggle FAQ answers
+        function toggleAnswer(question) {
+            const answer = question.nextElementSibling;
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allQuestions = document.querySelectorAll('.faq-question');
+            
+            // Close all other answers
+            allAnswers.forEach(item => {
+                if (item !== answer) {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Remove active class from all questions
+            allQuestions.forEach(item => {
+                if (item !== question) {
+                    item.style.backgroundColor = 'var(--light-blue)';
+                }
+            });
+            
+            // Toggle current answer
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                question.style.backgroundColor = 'var(--light-blue)';
+            } else {
+                answer.style.display = 'block';
+                question.style.backgroundColor = 'rgba(168, 218, 220, 0.8)';
+            }
+        }
+        
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Open first FAQ by default
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstQuestion = document.querySelector('.faq-question');
+            if (firstQuestion) {
+                firstQuestion.click();
+            }
+        });
+    </script>
+</body>
+</html>
